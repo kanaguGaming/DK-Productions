@@ -1,62 +1,87 @@
-/* =============================================
-   DK PRODUCTIONS — MAIN JAVASCRIPT
-   ============================================= */
+/* ==========================================================================
+   DK PRODUCTIONS — CORE ENGINE & INTERACTION DYNAMICS
+   Includes: Floating Nav Scroll Dynamics, Mobile Glass Drawer,
+             Buttery Scroll Reveal, Skill Bar Meters, Card Cursor Spotlight
+   ========================================================================== */
 
 'use strict';
 
-/* ========================
-   NAV SCROLL EFFECT
-   ======================== */
+/* ==========================================================================
+   1. FLOATING NAVBAR SCROLL DYNAMICS
+   ========================================================================== */
 const nav = document.getElementById('mainNav');
+
 function handleNavScroll() {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
+  if (!nav) return;
+  const isScrolled = window.scrollY > 40;
+  nav.classList.toggle('scrolled', isScrolled);
 }
+
 window.addEventListener('scroll', handleNavScroll, { passive: true });
 handleNavScroll();
 
-/* ========================
-   MOBILE MENU
-   ======================== */
+/* ==========================================================================
+   2. MOBILE GLASS DRAWER CONTROLS
+   ========================================================================== */
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobileMenu   = document.getElementById('mobileMenu');
 const mobileClose  = document.getElementById('mobileClose');
 
 function openMobileMenu() {
+  if (!mobileMenu) return;
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
 function closeMobileMenu() {
+  if (!mobileMenu) return;
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
 }
+
 window.closeMobileMenu = closeMobileMenu;
 
 if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
 if (mobileClose)  mobileClose.addEventListener('click', closeMobileMenu);
-if (mobileMenu)   mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMobileMenu(); });
+if (mobileMenu) {
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) closeMobileMenu();
+  });
+}
 
-/* ========================
-   SCROLL REVEAL
-   ======================== */
+// Close drawer on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu?.classList.contains('open')) {
+    closeMobileMenu();
+  }
+});
+
+/* ==========================================================================
+   3. BUTTERY SCROLL REVEAL (IntersectionObserver)
+   ========================================================================== */
 function setupReveal() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
-/* ========================
-   ANIMATED SKILL BARS
-   ======================== */
+/* ==========================================================================
+   4. ANIMATED SKILL BARS
+   ========================================================================== */
 function setupSkillBars() {
   const fills = document.querySelectorAll('.skill-bar-fill');
   if (!fills.length) return;
 
   fills.forEach(fill => {
-    // Read --pct from the style attribute
     const styleAttr = fill.getAttribute('style') || '';
     const match = styleAttr.match(/--pct:\s*([\d.]+%)/);
     const target = match ? match[1] : '0%';
@@ -69,23 +94,24 @@ function setupSkillBars() {
       if (entry.isIntersecting) {
         const fill = entry.target;
         const target = fill.getAttribute('data-target') || '0%';
-        // Small delay for visual polish
-        setTimeout(() => { fill.style.width = target; }, 150);
+        setTimeout(() => {
+          fill.style.width = target;
+        }, 120);
         observer.unobserve(fill);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
 
   fills.forEach(fill => observer.observe(fill));
 }
 
-/* ========================
-   SMOOTH ANCHOR SCROLL
-   ======================== */
+/* ==========================================================================
+   5. SMOOTH ANCHOR LINK NAVIGATION
+   ========================================================================== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
-    if (href === '#') return;
+    if (!href || href === '#') return;
     const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
@@ -95,26 +121,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* ========================
-   ACTIVE NAV LINK
-   ======================== */
-function setActiveNav() {
-  const path = window.location.pathname;
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  if (path.includes('director')) {
-    document.getElementById('nav-director')?.classList.add('active');
-  } else if (path.includes('crew')) {
-    document.getElementById('nav-crew')?.classList.add('active');
-  } else {
-    document.getElementById('nav-home')?.classList.add('active');
-  }
+/* ==========================================================================
+   6. CARD CURSOR SPOTLIGHT TRACKING
+   ========================================================================== */
+function setupCardSpotlights() {
+  const cards = document.querySelectorAll('.film-card-minimal, .crew-card-glass, .stat-card-glass, .skill-card-glass, .award-card-glass');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
 }
 
-/* ========================
-   INIT
-   ======================== */
+/* ==========================================================================
+   7. INITIALIZATION
+   ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   setupReveal();
   setupSkillBars();
-  setActiveNav();
+  setupCardSpotlights();
 });

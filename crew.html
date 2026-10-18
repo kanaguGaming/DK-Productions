@@ -2,211 +2,330 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>The Crew — DK Productions</title>
   <meta name="description" content="Meet the talented crew behind DK Productions — actors, cinematographers, editors, music composers, ADs and more who bring our stories to life." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="mainNav">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/images/logo.jpg" alt="DK Productions Logo" />
-      <div class="nav-logo-text">DK Productions<span>short films</span></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html" id="nav-home">Films</a></li>
-      <li><a href="director.html" id="nav-director">Director</a></li>
-      <li><a href="crew.html" class="active" id="nav-crew">Crew</a></li>
-      <li><a href="index.html#contact" id="nav-contact">Contact</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div class="nav-mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose">✕</button>
-    <a href="index.html" onclick="closeMobileMenu()">Films</a>
-    <a href="director.html" onclick="closeMobileMenu()">Director</a>
-    <a href="crew.html" onclick="closeMobileMenu()">Crew</a>
-    <a href="index.html#contact" onclick="closeMobileMenu()">Contact</a>
+  <!-- AMBIENT REFRACTION SCENE -->
+  <div class="ambient-scene" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
   </div>
 
-  <!-- CREW HERO -->
-  <header class="crew-hero">
-    <span class="section-label" style="animation: fadeUp 0.8s ease both;">The Team</span>
-    <h1 style="animation: fadeUp 0.8s ease 0.2s both; font-style:italic; font-weight:300;">The Crew</h1>
-    <div class="white-line centered" style="animation: fadeUp 0.8s ease 0.4s both;"></div>
-    <p style="max-width:500px; color:var(--muted); font-family:var(--heading-font); font-style:italic; font-weight:300; font-size:1rem; line-height:1.9; animation: fadeUp 0.8s ease 0.6s both;">Behind every great film is an even greater team. These are the artists, technicians, and storytellers who breathe life into every frame.</p>
-  </header>
+  <div class="site-content">
 
-  <!-- FILTER BAR -->
-  <div class="filter-bar" id="filterBar">
-    <button class="filter-pill active" data-filter="all" id="filter-all">All</button>
-    <button class="filter-pill" data-filter="actor" id="filter-actor">Actors</button>
-    <button class="filter-pill" data-filter="camera" id="filter-camera">Camera</button>
-    <button class="filter-pill" data-filter="music" id="filter-music">Music</button>
-    <button class="filter-pill" data-filter="ad" id="filter-ad">A.D.</button>
-    <button class="filter-pill" data-filter="editor" id="filter-editor">Editor</button>
-    <button class="filter-pill" data-filter="sound" id="filter-sound">Sound</button>
-    <button class="filter-pill" data-filter="art" id="filter-art">Art Dept.</button>
-  </div>
+    <!-- OPTIMIZED FLOATING CAPSULE NAVBAR -->
+    <header class="nav-wrapper">
+      <nav class="nav" id="mainNav">
+        <a href="index.html" class="nav-logo" aria-label="DK Productions Home">
+          <div class="nav-logo-icon">
+            <img src="assets/images/logo.png" alt="DK Productions Logo" />
+          </div>
+          <div class="nav-logo-text">
+            DK Productions
+            <span>Chennai · Studio</span>
+          </div>
+        </a>
 
-  <!-- CREW GRID -->
-  <div class="crew-grid-wrapper">
+        <ul class="nav-links">
+          <li><a href="index.html" id="nav-home">Films</a></li>
+          <li><a href="director.html" id="nav-director">Director</a></li>
+          <li><a href="crew.html" class="active" id="nav-crew">Crew</a></li>
+          <li><a href="index.html#contact" id="nav-contact">Contact</a></li>
+        </ul>
+
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <a href="index.html#contact" class="nav-cta-btn">Inquire</a>
+          <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MOBILE GLASS DRAWER -->
+    <div class="nav-mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <div class="nav-logo">
+          <div class="nav-logo-icon">
+            <img src="assets/images/logo.png" alt="DK Productions Logo" />
+          </div>
+          <div class="nav-logo-text">
+            DK Productions
+            <span>Chennai · Studio</span>
+          </div>
+        </div>
+        <button class="mobile-close" id="mobileClose" aria-label="Close Menu">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="mobile-menu-links">
+        <a href="index.html" class="mobile-menu-link" onclick="closeMobileMenu()">
+          <span>Films</span>
+          <span class="num">01</span>
+        </a>
+        <a href="director.html" class="mobile-menu-link" onclick="closeMobileMenu()">
+          <span>Director</span>
+          <span class="num">02</span>
+        </a>
+        <a href="crew.html" class="mobile-menu-link active" onclick="closeMobileMenu()">
+          <span>Crew</span>
+          <span class="num">03</span>
+        </a>
+        <a href="index.html#contact" class="mobile-menu-link" onclick="closeMobileMenu()">
+          <span>Contact</span>
+          <span class="num">04</span>
+        </a>
+      </div>
+
+      <div class="mobile-menu-footer">
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          <a href="mailto:dk.productions-dir@gmail.com" class="mobile-menu-contact" style="color:var(--white); display:inline-flex; align-items:center; gap:0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Studio: dk.productions-dir@gmail.com
+          </a>
+          <a href="mailto:dhineshkarthick076@gmail.com" class="mobile-menu-contact" style="color:var(--silver); display:inline-flex; align-items:center; gap:0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Director: dhineshkarthick076@gmail.com
+          </a>
+          <a href="mailto:kanagubry@gmail.com" class="mobile-menu-contact" style="color:var(--text-muted); display:inline-flex; align-items:center; gap:0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Admin: kanagubry@gmail.com
+          </a>
+        </div>
+        <p style="font-family:var(--font-ui); font-size:0.62rem; color:var(--text-subtle); margin-top:0.4rem;">Independent Short Film Studio · Chennai, India</p>
+      </div>
+    </div>
+
+    <!-- CREW HERO -->
+    <header class="crew-hero">
+      <span class="section-label" style="animation: fadeUp 0.8s var(--ease-spring) both;">Production Artists &amp; Technicians</span>
+      <h1 style="animation: fadeUp 0.8s var(--ease-spring) 0.15s both; font-style:italic;">The Creative Crew</h1>
+      <div class="white-line centered" style="animation: fadeUp 0.8s var(--ease-spring) 0.3s both;"></div>
+      <p style="max-width:540px; color:var(--text-muted); font-size:1rem; line-height:1.8; animation: fadeUp 0.8s var(--ease-spring) 0.45s both;">
+        Behind every frame is an extraordinary collective of visionaries, performers, sound sculptors, and light artists who bring our stories to life.
+      </p>
+    </header>
+
+    <!-- STICKY GLASS FILTER BAR -->
+    <div class="filter-bar-sticky" id="filterBar">
+      <div class="filter-pill-container">
+        <button class="filter-pill active" data-filter="all" id="filter-all">All Crew</button>
+        <button class="filter-pill" data-filter="actor" id="filter-actor">Actors</button>
+        <button class="filter-pill" data-filter="camera" id="filter-camera">Cinematography</button>
+        <button class="filter-pill" data-filter="music" id="filter-music">Music &amp; Vocals</button>
+        <button class="filter-pill" data-filter="ad" id="filter-ad">Direction Team</button>
+        <button class="filter-pill" data-filter="editor" id="filter-editor">Post &amp; Edit</button>
+        <button class="filter-pill" data-filter="sound" id="filter-sound">Sound</button>
+        <button class="filter-pill" data-filter="art" id="filter-art">Art Dept.</button>
+      </div>
+    </div>
+
+    <!-- CREW GRID -->
     <div class="crew-grid" id="crewGrid">
 
       <!-- Actor 1 -->
-      <div class="crew-card" data-role="actor" data-id="0">
+      <div class="crew-card-glass" data-role="actor" data-id="0" onclick="openModal(0)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_actor1.jpg" alt="Aryan Mehta" class="crew-portrait" />
-          <div class="crew-role-badge"><span class="crew-role-text">Actor</span></div>
+          <img src="assets/images/crew_actor1.jpg" alt="Aryan Mehta" class="crew-portrait" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Lead Actor</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Aryan Mehta</h3>
           <p class="crew-bio-short">Method actor with a talent for understated intensity and complex emotional range.</p>
-          <div class="crew-films-tag">Appeared In</div>
           <div class="crew-film-pills">
             <span class="crew-film-pill">Echoes of Dusk</span>
             <span class="crew-film-pill">Still Waters</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(0); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">FTII Alum</span>
         </div>
       </div>
 
       <!-- Actor 2 -->
-      <div class="crew-card" data-role="actor" data-id="1">
+      <div class="crew-card-glass" data-role="actor" data-id="1" onclick="openModal(1)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_actor2.jpg" alt="Priya Sen" class="crew-portrait" />
-          <div class="crew-role-badge"><span class="crew-role-text">Actress</span></div>
+          <img src="assets/images/crew_actor2.jpg" alt="Priya Sen" class="crew-portrait" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Lead Actress</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Priya Sen</h3>
           <p class="crew-bio-short">A versatile performer who brings raw vulnerability and fierce conviction to every role.</p>
-          <div class="crew-films-tag">Appeared In</div>
           <div class="crew-film-pills">
             <span class="crew-film-pill">Echoes of Dusk</span>
             <span class="crew-film-pill">Fractured</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(1); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Lead Cast</span>
         </div>
       </div>
 
       <!-- Actor 3 -->
-      <div class="crew-card" data-role="actor" data-id="2">
+      <div class="crew-card-glass" data-role="actor" data-id="2" onclick="openModal(2)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_actor1.jpg" alt="Karan Nair" class="crew-portrait" style="object-position: center 20%;" />
-          <div class="crew-role-badge"><span class="crew-role-text">Actor</span></div>
+          <img src="assets/images/crew_actor1.jpg" alt="Karan Nair" class="crew-portrait" style="object-position: center 20%;" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Character Actor</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Karan Nair</h3>
           <p class="crew-bio-short">Character actor known for nuanced portrayals of morally ambiguous figures.</p>
-          <div class="crew-films-tag">Appeared In</div>
           <div class="crew-film-pills">
             <span class="crew-film-pill">The Crimson Letter</span>
             <span class="crew-film-pill">Still Waters</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(2); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Theatre Artist</span>
         </div>
       </div>
 
       <!-- Actor 4 -->
-      <div class="crew-card" data-role="actor" data-id="3">
+      <div class="crew-card-glass" data-role="actor" data-id="3" onclick="openModal(3)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_actor2.jpg" alt="Meera Krishnan" class="crew-portrait" style="object-position: center 30%;" />
-          <div class="crew-role-badge"><span class="crew-role-text">Actress</span></div>
+          <img src="assets/images/crew_actor2.jpg" alt="Meera Krishnan" class="crew-portrait" style="object-position: center 30%;" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Lead Actress</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Meera Krishnan</h3>
           <p class="crew-bio-short">Stage-trained actress bringing theatrical depth to intimate short film narratives.</p>
-          <div class="crew-films-tag">Appeared In</div>
           <div class="crew-film-pills">
             <span class="crew-film-pill">Still Waters</span>
             <span class="crew-film-pill">Fractured</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(3); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Kalakshetra</span>
         </div>
       </div>
 
       <!-- Cinematographer -->
-      <div class="crew-card" data-role="camera" data-id="4">
+      <div class="crew-card-glass" data-role="camera" data-id="4" onclick="openModal(4)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_cinematographer.jpg" alt="Ravi Shankar" class="crew-portrait" />
-          <div class="crew-role-badge"><span class="crew-role-text">Cinematographer</span></div>
+          <img src="assets/images/crew_cinematographer.jpg" alt="Ravi Shankar" class="crew-portrait" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Director of Photography</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Ravi Shankar</h3>
-          <p class="crew-bio-short">Visual storyteller with mastery of natural light, handheld texture, and wide-format shooting.</p>
-          <div class="crew-films-tag">Worked On</div>
+          <p class="crew-bio-short">Visual storyteller with mastery of natural light, handheld texture, and wide-format anamorphic lenses.</p>
           <div class="crew-film-pills">
-            <span class="crew-film-pill">All Productions</span>
+            <span class="crew-film-pill">All 4 Productions</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(4); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">DOP · Core Team</span>
         </div>
       </div>
 
       <!-- Camera Operator -->
-      <div class="crew-card" data-role="camera" data-id="5">
+      <div class="crew-card-glass" data-role="camera" data-id="5" onclick="openModal(5)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_cinematographer.jpg" alt="Anand Pillai" class="crew-portrait" style="object-position: 70% center;" />
-          <div class="crew-role-badge"><span class="crew-role-text">Camera Operator</span></div>
+          <img src="assets/images/crew_cinematographer.jpg" alt="Anand Pillai" class="crew-portrait" style="object-position: 70% center;" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Steadicam &amp; Cam Op</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Anand Pillai</h3>
-          <p class="crew-bio-short">Precision camera operator specialising in fluid movement and long-take sequences.</p>
-          <div class="crew-films-tag">Worked On</div>
+          <p class="crew-bio-short">Precision camera operator specialising in fluid movement and intricate long-take sequences.</p>
           <div class="crew-film-pills">
             <span class="crew-film-pill">Echoes of Dusk</span>
             <span class="crew-film-pill">The Crimson Letter</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(5); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Camera Dept</span>
         </div>
       </div>
 
       <!-- Editor -->
-      <div class="crew-card" data-role="editor" data-id="6">
+      <div class="crew-card-glass" data-role="editor" data-id="6" onclick="openModal(6)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_editor.jpg" alt="Nisha Verma" class="crew-portrait" />
-          <div class="crew-role-badge"><span class="crew-role-text">Editor</span></div>
+          <img src="assets/images/crew_editor.jpg" alt="Nisha Verma" class="crew-portrait" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Film Editor</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Nisha Verma</h3>
           <p class="crew-bio-short">Montage virtuoso who sculpts tension, rhythm, and emotion from raw footage.</p>
-          <div class="crew-films-tag">Worked On</div>
           <div class="crew-film-pills">
-            <span class="crew-film-pill">All Productions</span>
+            <span class="crew-film-pill">All 4 Productions</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(6); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Lead Editor</span>
         </div>
       </div>
 
       <!-- Music Composer -->
-      <div class="crew-card" data-role="music" data-id="7">
+      <div class="crew-card-glass" data-role="music" data-id="7" onclick="openModal(7)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_actor1.jpg" alt="Rohan Das" class="crew-portrait" style="filter: grayscale(70%) brightness(0.75) contrast(1.1);" />
-          <div class="crew-role-badge"><span class="crew-role-text">Music Composer</span></div>
+          <img src="assets/images/crew_actor1.jpg" alt="Rohan Das" class="crew-portrait" style="filter: grayscale(70%) brightness(0.75) contrast(1.1);" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Music Composer</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Rohan Das</h3>
           <p class="crew-bio-short">Composer of atmospheric, genre-defying scores that blur the line between sound and silence.</p>
-          <div class="crew-films-tag">Worked On</div>
           <div class="crew-film-pills">
             <span class="crew-film-pill">Echoes of Dusk</span>
             <span class="crew-film-pill">Fractured</span>
@@ -214,20 +333,26 @@
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(7); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Score Artist</span>
         </div>
       </div>
 
       <!-- AD -->
-      <div class="crew-card" data-role="ad" data-id="8">
+      <div class="crew-card-glass" data-role="ad" data-id="8" onclick="openModal(8)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_actor2.jpg" alt="Divya Menon" class="crew-portrait" style="object-position: center 10%;" />
-          <div class="crew-role-badge"><span class="crew-role-text">Asst. Director</span></div>
+          <img src="assets/images/crew_actor2.jpg" alt="Divya Menon" class="crew-portrait" style="object-position: center 10%;" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">1st Assistant Director</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Divya Menon</h3>
           <p class="crew-bio-short">Meticulous AD who transforms chaotic sets into well-oiled, creative machines.</p>
-          <div class="crew-films-tag">Worked On</div>
           <div class="crew-film-pills">
             <span class="crew-film-pill">The Crimson Letter</span>
             <span class="crew-film-pill">Still Waters</span>
@@ -235,104 +360,148 @@
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(8); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Floor Producer</span>
         </div>
       </div>
 
       <!-- Sound -->
-      <div class="crew-card" data-role="sound" data-id="9">
+      <div class="crew-card-glass" data-role="sound" data-id="9" onclick="openModal(9)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_editor.jpg" alt="Suresh Pillai" class="crew-portrait" style="object-position: center 40%;" />
-          <div class="crew-role-badge"><span class="crew-role-text">Sound Designer</span></div>
+          <img src="assets/images/crew_editor.jpg" alt="Suresh Pillai" class="crew-portrait" style="object-position: center 40%;" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Sound Designer</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Suresh Pillai</h3>
           <p class="crew-bio-short">Award-winning sound designer who crafts immersive sonic environments that transport audiences.</p>
-          <div class="crew-films-tag">Worked On</div>
           <div class="crew-film-pills">
-            <span class="crew-film-pill">All Productions</span>
+            <span class="crew-film-pill">All 4 Productions</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(9); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Foley &amp; Mix</span>
         </div>
       </div>
 
       <!-- Art Director -->
-      <div class="crew-card" data-role="art" data-id="10">
+      <div class="crew-card-glass" data-role="art" data-id="10" onclick="openModal(10)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_cinematographer.jpg" alt="Aditya Rao" class="crew-portrait" style="object-position: 30% center;" />
-          <div class="crew-role-badge"><span class="crew-role-text">Art Director</span></div>
+          <img src="assets/images/crew_cinematographer.jpg" alt="Aditya Rao" class="crew-portrait" style="object-position: 30% center;" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Production Designer</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Aditya Rao</h3>
           <p class="crew-bio-short">Art director who builds tactile, detail-rich worlds that feel lived-in and emotionally authentic.</p>
-          <div class="crew-films-tag">Worked On</div>
           <div class="crew-film-pills">
             <span class="crew-film-pill">Fractured</span>
             <span class="crew-film-pill">The Crimson Letter</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(10); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Art Dept</span>
         </div>
       </div>
 
       <!-- Music Vocals -->
-      <div class="crew-card" data-role="music" data-id="11">
+      <div class="crew-card-glass" data-role="music" data-id="11" onclick="openModal(11)">
         <div class="crew-portrait-wrap">
-          <img src="assets/images/crew_actor2.jpg" alt="Ananya Roy" class="crew-portrait" style="object-position: center 20%;" />
-          <div class="crew-role-badge"><span class="crew-role-text">Music — Vocals</span></div>
+          <img src="assets/images/crew_actor2.jpg" alt="Ananya Roy" class="crew-portrait" style="object-position: center 20%;" loading="lazy" />
+          <div class="crew-portrait-shade"></div>
+          <div class="crew-role-badge-overlay">
+            <span class="badge-chip verified">Vocalist &amp; Lyricist</span>
+          </div>
         </div>
         <div class="crew-card-body">
           <h3 class="crew-name">Ananya Roy</h3>
-          <p class="crew-bio-short">Vocalist and lyricist whose haunting voice anchors the emotional cores of the films.</p>
-          <div class="crew-films-tag">Worked On</div>
+          <p class="crew-bio-short">Vocalist and lyricist whose haunting voice anchors the emotional cores of our films.</p>
           <div class="crew-film-pills">
             <span class="crew-film-pill">Echoes of Dusk</span>
             <span class="crew-film-pill">Still Waters</span>
           </div>
         </div>
         <div class="crew-card-footer">
-          <button class="crew-view-btn" onclick="openModal(11); event.stopPropagation();">View Profile →</button>
+          <span class="crew-view-btn">
+            View Profile
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </span>
+          <span style="font-family:var(--font-ui); font-size:0.6rem; color:var(--text-subtle);">Vocals</span>
         </div>
       </div>
 
     </div>
-  </div>
 
-  <!-- PROFILE MODAL -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-card" id="modalCard">
-      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-      <div class="modal-header">
-        <img src="" alt="" class="modal-portrait" id="modalPortrait" />
-        <div class="modal-info">
-          <div class="modal-role"  id="modalRole"></div>
-          <div class="modal-name"  id="modalName"></div>
-          <div class="modal-tagline" id="modalTagline"></div>
+    <!-- CREW PROFILE MODAL (Glassmorphic) -->
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+      <div class="modal-card" id="modalCard">
+        <button class="modal-close-trigger" id="modalClose" aria-label="Close Profile">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        
+        <div class="modal-header-crew">
+          <div class="modal-portrait-box">
+            <img src="" alt="" class="modal-portrait" id="modalPortrait" />
+          </div>
+          <div class="modal-crew-meta">
+            <span class="badge-chip verified" id="modalRole">Actor</span>
+            <h2 class="modal-crew-name" id="modalName">Aryan Mehta</h2>
+            <p class="modal-tagline" id="modalTagline"></p>
+          </div>
+        </div>
+
+        <div class="modal-body-crew">
+          <span class="synopsis-heading">Biography &amp; Artistic Profile</span>
+          <p class="modal-bio" id="modalBio"></p>
+
+          <span class="synopsis-heading" style="margin-top:1.5rem; display:block;">Production Credits</span>
+          <div class="modal-film-list" id="modalFilmList" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem;"></div>
+
+          <div style="margin-top:2.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="mailto:kanagubry@gmail.com?cc=dk.productions-dir@gmail.com&subject=Casting%20%2F%20Crew%20Inquiry" class="btn-primary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              Inquire / Casting Inquiry (Admin)
+            </a>
+            <button class="btn-glass" onclick="closeModal()">
+              Close Profile
+            </button>
+          </div>
         </div>
       </div>
-      <div class="modal-body">
-        <div class="modal-section-title">About</div>
-        <p class="modal-bio" id="modalBio"></p>
-        <div class="modal-section-title" style="margin-top:1.5rem;">Filmography</div>
-        <div class="modal-film-list" id="modalFilmList"></div>
-      </div>
     </div>
-  </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-logo">DK Productions</div>
-    <p class="footer-tagline">Crafting Stories That Move</p>
-    <nav class="footer-links">
-      <a href="index.html">Films</a>
-      <a href="director.html">Director</a>
-      <a href="crew.html">Crew</a>
-    </nav>
-    <p class="footer-copy">© 2024 DK Productions. All rights reserved.</p>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-logo">DK Productions</div>
+      <p class="footer-tagline">Chennai · Crafting Stories That Move</p>
+      <nav class="footer-links">
+        <a href="index.html">Films</a>
+        <a href="director.html">Director</a>
+        <a href="crew.html">Crew</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2024 DK Productions. All rights reserved.</p>
+    </footer>
+
+  </div><!-- /site-content -->
 
   <script src="main.js"></script>
   <script src="crew.js"></script>

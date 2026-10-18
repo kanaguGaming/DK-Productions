@@ -1,19 +1,18 @@
-/* =============================================
-   DK PRODUCTIONS — CREW PAGE JAVASCRIPT
-   Handles: Role filter, modal open/close,
-            profile data, card animations
-   ============================================= */
+/* ==========================================================================
+   DK PRODUCTIONS — CREW MODULE & PROFILE DOSSIER
+   Handles: Role Filtering, Profile Dossier Modal, Staggered Entrance
+   ========================================================================== */
 
 'use strict';
 
-/* ========================
-   CREW PROFILE DATA
-   ======================== */
+/* ==========================================================================
+   1. CREW PROFILE DATA
+   ========================================================================== */
 const crewData = [
   {
     id: 0,
     name: 'Aryan Mehta',
-    role: 'Actor',
+    role: 'Lead Actor',
     portrait: 'assets/images/crew_actor1.jpg',
     tagline: '"Every character holds a mirror to a part of myself I didn\'t know existed."',
     bio: 'Aryan Mehta is a trained method actor with over eight years of stage and screen experience. Known for his ability to disappear completely into a role, he brings an uncanny emotional truth to every character he inhabits. He studied at the National School of Drama and has appeared in numerous independent productions across India.',
@@ -22,7 +21,7 @@ const crewData = [
   {
     id: 1,
     name: 'Priya Sen',
-    role: 'Actress',
+    role: 'Lead Actress',
     portrait: 'assets/images/crew_actor2.jpg',
     tagline: '"Vulnerability is the bravest thing an actor can offer an audience."',
     bio: 'Priya Sen is widely regarded as one of the most compelling actresses in the independent short film circuit. Her work is characterised by fearless emotional exposure and razor-sharp instinct. She holds a master\'s degree in performing arts from the Film and Television Institute of India.',
@@ -31,7 +30,7 @@ const crewData = [
   {
     id: 2,
     name: 'Karan Nair',
-    role: 'Actor',
+    role: 'Character Actor',
     portrait: 'assets/images/crew_actor1.jpg',
     tagline: '"I don\'t play villains. I play people who made different choices than you."',
     bio: 'Karan Nair specialises in morally complex characters, bringing depth and unpredictability to roles that lesser actors might play one-dimensionally. His background in theatre has given him an exceptional command of physical storytelling and stage presence that translates powerfully on camera.',
@@ -40,7 +39,7 @@ const crewData = [
   {
     id: 3,
     name: 'Meera Krishnan',
-    role: 'Actress',
+    role: 'Lead Actress',
     portrait: 'assets/images/crew_actor2.jpg',
     tagline: '"Short films demand everything — there\'s no hiding behind a long runtime."',
     bio: 'Meera Krishnan\'s stage training is evident in every performance — precise, physical, fully committed. She has an extraordinary ability to convey internal conflict through the smallest gestures, making her perfect for the intimate, close-up world of short cinema. She is based in Chennai and is an alumna of Kalakshetra Foundation.',
@@ -58,7 +57,7 @@ const crewData = [
   {
     id: 5,
     name: 'Anand Pillai',
-    role: 'Camera Operator',
+    role: 'Steadicam & Cam Op',
     portrait: 'assets/images/crew_cinematographer.jpg',
     tagline: '"A moving camera breathes life into static moments."',
     bio: 'Anand Pillai is a camera operator known for his instinctive sense of movement and composition. Whether operating a Steadicam through a long take or shooting handheld in tight quarters, Anand adapts seamlessly to the demands of the story. He has collaborated with Ravi Shankar across multiple productions.',
@@ -85,7 +84,7 @@ const crewData = [
   {
     id: 8,
     name: 'Divya Menon',
-    role: 'Assistant Director',
+    role: '1st Assistant Director',
     portrait: 'assets/images/crew_actor2.jpg',
     tagline: '"The best AD is one the director never has to think about."',
     bio: 'Divya Menon is the operational backbone of every DK Productions shoot. As First AD, she runs the floor with quiet authority, ensuring that Deepak Kumar\'s creative vision is never compromised by logistical chaos. She is meticulous in pre-production, creative under pressure, and universally respected by every crew member she works with.',
@@ -103,7 +102,7 @@ const crewData = [
   {
     id: 10,
     name: 'Aditya Rao',
-    role: 'Art Director',
+    role: 'Production Designer',
     portrait: 'assets/images/crew_cinematographer.jpg',
     tagline: '"Every object in frame is a choice. Every choice tells a story."',
     bio: 'Aditya Rao is a production designer with an obsessive eye for detail. He builds film worlds from the inside out — researching obsessively, sourcing authentically, and building environments that characters feel they have always lived in. His work on "Fractured" was particularly praised for its surreal yet grounded design language.',
@@ -120,15 +119,14 @@ const crewData = [
   },
 ];
 
-/* ========================
-   FILTER FUNCTIONALITY
-   ======================== */
+/* ==========================================================================
+   2. ROLE FILTERING
+   ========================================================================== */
 const filterPills = document.querySelectorAll('.filter-pill');
-const crewCards   = document.querySelectorAll('.crew-card');
+const crewCards   = document.querySelectorAll('.crew-card-glass');
 
 filterPills.forEach(pill => {
   pill.addEventListener('click', () => {
-    // Update active pill
     filterPills.forEach(p => p.classList.remove('active'));
     pill.classList.add('active');
 
@@ -138,15 +136,14 @@ filterPills.forEach(pill => {
       const role = card.getAttribute('data-role');
       if (filter === 'all' || role === filter) {
         card.classList.remove('hidden');
-        // Re-trigger reveal animation
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
+        card.style.transform = 'translateY(16px)';
         requestAnimationFrame(() => {
           setTimeout(() => {
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            card.style.transition = 'opacity 0.4s var(--ease-spring), transform 0.4s var(--ease-spring)';
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
-          }, 50);
+          }, 30);
         });
       } else {
         card.classList.add('hidden');
@@ -155,16 +152,16 @@ filterPills.forEach(pill => {
   });
 });
 
-/* ========================
-   MODAL
-   ======================== */
-const modalOverlay = document.getElementById('modalOverlay');
-const modalClose   = document.getElementById('modalClose');
+/* ==========================================================================
+   3. PROFILE DOSSIER MODAL
+   ========================================================================== */
+const modalOverlay  = document.getElementById('modalOverlay');
+const modalClose    = document.getElementById('modalClose');
 const modalPortrait = document.getElementById('modalPortrait');
-const modalRole    = document.getElementById('modalRole');
-const modalName    = document.getElementById('modalName');
-const modalTagline = document.getElementById('modalTagline');
-const modalBio     = document.getElementById('modalBio');
+const modalRole     = document.getElementById('modalRole');
+const modalName     = document.getElementById('modalName');
+const modalTagline  = document.getElementById('modalTagline');
+const modalBio      = document.getElementById('modalBio');
 const modalFilmList = document.getElementById('modalFilmList');
 
 function openModal(id) {
@@ -178,9 +175,8 @@ function openModal(id) {
   modalTagline.textContent = person.tagline;
   modalBio.textContent     = person.bio;
 
-  // Populate film tags
   modalFilmList.innerHTML = person.films
-    .map(f => `<span class="modal-film-tag">${f}</span>`)
+    .map(f => `<span class="badge-chip">${f}</span>`)
     .join('');
 
   modalOverlay.classList.add('open');
@@ -192,45 +188,33 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// Expose globally for inline onclick
 window.openModal = openModal;
 window.closeModal = closeModal;
 
-if (modalClose)   modalClose.addEventListener('click', closeModal);
+if (modalClose) modalClose.addEventListener('click', closeModal);
 if (modalOverlay) {
   modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) closeModal();
   });
 }
 
-// ESC key close
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Escape' && modalOverlay?.classList.contains('open')) {
+    closeModal();
+  }
 });
 
-/* ========================
-   CREW CARD CLICK — also opens modal
-   ======================== */
-crewCards.forEach(card => {
-  card.addEventListener('click', (e) => {
-    // Don't re-trigger if the button was the click target (it has its own handler)
-    if (e.target.classList.contains('crew-view-btn')) return;
-    const id = parseInt(card.getAttribute('data-id'), 10);
-    if (!isNaN(id)) openModal(id);
-  });
-});
-
-/* ========================
-   STAGGER CARD ENTRANCE
-   ======================== */
+/* ==========================================================================
+   4. STAGGERED ENTRANCE ON LOAD
+   ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   crewCards.forEach((card, i) => {
     card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
+    card.style.transform = 'translateY(24px)';
     setTimeout(() => {
-      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.35s, box-shadow 0.35s, transform 0.35s';
+      card.style.transition = 'opacity 0.6s var(--ease-spring), transform 0.6s var(--ease-spring), border-color 0.25s, box-shadow 0.25s';
       card.style.opacity = '1';
       card.style.transform = 'translateY(0)';
-    }, 100 + i * 60);
+    }, 80 + i * 50);
   });
 });

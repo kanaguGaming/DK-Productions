@@ -2,298 +2,522 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DK Productions — Crafting Stories That Move</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>DK Productions - Chennai</title>
   <meta name="description" content="DK Productions is an independent short film production company dedicated to crafting compelling, cinematic stories that resonate and inspire." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="mainNav">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/images/logo.png" alt="DK Productions Logo" />
-      <div class="nav-logo-text">DK Productions<span>short films</span></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active" id="nav-home">Films</a></li>
-      <li><a href="director.html" id="nav-director">Director</a></li>
-      <li><a href="crew.html" id="nav-crew">Crew</a></li>
-      <li><a href="#contact" id="nav-contact">Contact</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div class="nav-mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose">✕</button>
-    <a href="index.html" onclick="closeMobileMenu()">Films</a>
-    <a href="director.html" onclick="closeMobileMenu()">Director</a>
-    <a href="crew.html" onclick="closeMobileMenu()">Crew</a>
-    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <!-- AMBIENT REFRACTION SCENE -->
+  <div class="ambient-scene" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero-main" id="home">
-    <img src="assets/images/logo.png" alt="DK Productions" class="hero-logo" />
-    <p class="hero-eyebrow">Independent Short Film Production</p>
-    <h1 class="hero-title"><span class="dk">DK</span> Productions</h1>
-    <p class="hero-subtitle">Where Every Frame Tells a Story</p>
-    <div class="hero-divider"></div>
-    <p class="hero-description">
-      "We don't just make films — we craft experiences that linger long after the credits roll."
-    </p>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
+  <div class="site-content">
 
-  <!-- FILMS SECTION -->
-  <section class="films-section" id="films">
-    <div class="films-inner">
-      <div class="section-header reveal">
-        <span class="section-label">Our Productions</span>
-        <h2>Films</h2>
-        <div class="white-line"></div>
-        <p style="color:var(--muted); max-width:480px; font-size:0.9rem; font-family:var(--heading-font); font-style:italic; font-weight:300; line-height:1.8;">Each production is a labour of passion — stories born from silence, shaped by light, and brought to life by an extraordinary team.</p>
+    <!-- OPTIMIZED FLOATING CAPSULE NAVBAR -->
+    <header class="nav-wrapper">
+      <nav class="nav" id="mainNav">
+        <a href="index.html" class="nav-logo" aria-label="DK Productions Home">
+          <div class="nav-logo-icon">
+            <img src="assets/images/logo.png" alt="DK Productions Logo" />
+          </div>
+          <div class="nav-logo-text">
+            DK Productions
+            <span>Chennai · Studio</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="active" id="nav-home">Films</a></li>
+          <li><a href="director.html" id="nav-director">Director</a></li>
+          <li><a href="crew.html" id="nav-crew">Crew</a></li>
+          <li><a href="#contact" id="nav-contact">Contact</a></li>
+        </ul>
+
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <a href="#contact" class="nav-cta-btn">Inquire</a>
+          <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MOBILE GLASS DRAWER -->
+    <div class="nav-mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <div class="nav-logo">
+          <div class="nav-logo-icon">
+            <img src="assets/images/logo.png" alt="DK Productions Logo" />
+          </div>
+          <div class="nav-logo-text">
+            DK Productions
+            <span>Chennai · Studio</span>
+          </div>
+        </div>
+        <button class="mobile-close" id="mobileClose" aria-label="Close Menu">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
 
-      <div class="films-grid">
+      <div class="mobile-menu-links">
+        <a href="index.html" class="mobile-menu-link active" onclick="closeMobileMenu()">
+          <span>Films</span>
+          <span class="num">01</span>
+        </a>
+        <a href="director.html" class="mobile-menu-link" onclick="closeMobileMenu()">
+          <span>Director</span>
+          <span class="num">02</span>
+        </a>
+        <a href="crew.html" class="mobile-menu-link" onclick="closeMobileMenu()">
+          <span>Crew</span>
+          <span class="num">03</span>
+        </a>
+        <a href="#contact" class="mobile-menu-link" onclick="closeMobileMenu()">
+          <span>Contact</span>
+          <span class="num">04</span>
+        </a>
+      </div>
 
-        <!-- Film 1 -->
-        <article class="film-card reveal reveal-delay-1" data-film="0">
-          <div class="film-poster-wrap">
-            <img src="assets/images/film_echoes.jpg" alt="Echoes of Dusk" class="film-poster-img" />
-            <div class="film-year-badge">2024</div>
-            <div class="film-card-overlay">
-              <button class="film-watch-btn" onclick="openFilmModal(0); event.stopPropagation();">View Details</button>
+      <div class="mobile-menu-footer">
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          <a href="mailto:dk.productions-dir@gmail.com" class="mobile-menu-contact" style="color:var(--white); display:inline-flex; align-items:center; gap:0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Studio: dk.productions-dir@gmail.com
+          </a>
+          <a href="mailto:dhineshkarthick076@gmail.com" class="mobile-menu-contact" style="color:var(--silver); display:inline-flex; align-items:center; gap:0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Director: dhineshkarthick076@gmail.com
+          </a>
+          <a href="mailto:kanagubry@gmail.com" class="mobile-menu-contact" style="color:var(--text-muted); display:inline-flex; align-items:center; gap:0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Admin: kanagubry@gmail.com
+          </a>
+        </div>
+        <p style="font-family:var(--font-ui); font-size:0.62rem; color:var(--text-subtle); margin-top:0.4rem;">Independent Short Film Studio · Chennai, India</p>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-main" id="home">
+      <div class="hero-main-panel">
+        <div class="hero-logo-halo">
+          <img src="assets/images/logo.png" alt="DK Productions" class="hero-logo" />
+        </div>
+        
+        <p class="hero-eyebrow">Independent Short Film Production · Chennai</p>
+        <h1 class="hero-title"><span class="dk">DK</span> Productions</h1>
+        <p class="hero-subtitle">Where Every Frame Tells a Story</p>
+
+        <div class="hero-quote-card">
+          <p class="hero-description">
+            "We don't just make films — we craft experiences that linger long after the credits roll."
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#films" class="btn-primary">
+            Explore Films
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </a>
+          <a href="director.html" class="btn-glass">
+            Meet The Director
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-scroll-indicator">
+        <div class="scroll-pill">
+          <div class="scroll-dot"></div>
+        </div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- FILMS SECTION — MINIMAL FILM CARDS -->
+    <section class="films-section" id="films">
+      <div class="films-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Studio Catalog</span>
+          <h2>Our Films</h2>
+          <div class="white-line"></div>
+          <p class="section-header-desc">
+            Explore our curated filmography. Each production is crafted with singular cinematic vision, moody atmosphere, and emotional resonance.
+          </p>
+        </div>
+
+        <div class="films-grid">
+
+          <!-- Minimal Film Card 0 -->
+          <article class="film-card-minimal reveal reveal-delay-1" data-film="0" onclick="openFilmModal(0)">
+            <div class="film-card-spotlight"></div>
+            <div class="film-minimal-poster-wrap">
+              <img src="assets/images/film_echoes.jpg" alt="Echoes of Dusk" class="film-minimal-poster" loading="lazy" />
+              <div class="film-badge-top-left">
+                <span class="badge-chip verified">Official Selection</span>
+              </div>
+              <div class="film-badge-top-right">
+                <span class="badge-chip">2024</span>
+              </div>
+            </div>
+            <div class="film-minimal-body">
+              <h3 class="film-minimal-title">Echoes of Dusk</h3>
+              <div class="film-minimal-meta">
+                <span class="film-minimal-genre">Drama</span>
+                <span class="film-minimal-dot"></span>
+                <span class="film-minimal-runtime">18 min</span>
+                <span class="film-minimal-dot"></span>
+                <span class="film-minimal-runtime">Tamil / English</span>
+              </div>
+              <div class="film-minimal-footer">
+                <span class="film-minimal-action">
+                  View Dossier
+                  <span class="film-action-arrow">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </span>
+                </span>
+                <span style="font-family:var(--font-ui); font-size:0.62rem; color:var(--text-subtle); letter-spacing:0.1em; text-transform:uppercase;">Dir. Deepak Kumar</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Minimal Film Card 1 -->
+          <article class="film-card-minimal reveal reveal-delay-2" data-film="1" onclick="openFilmModal(1)">
+            <div class="film-card-spotlight"></div>
+            <div class="film-minimal-poster-wrap">
+              <img src="assets/images/film_crimson.jpg" alt="The Crimson Letter" class="film-minimal-poster" loading="lazy" />
+              <div class="film-badge-top-left">
+                <span class="badge-chip verified">Award Winner</span>
+              </div>
+              <div class="film-badge-top-right">
+                <span class="badge-chip">2023</span>
+              </div>
+            </div>
+            <div class="film-minimal-body">
+              <h3 class="film-minimal-title">The Crimson Letter</h3>
+              <div class="film-minimal-meta">
+                <span class="film-minimal-genre">Thriller</span>
+                <span class="film-minimal-dot"></span>
+                <span class="film-minimal-runtime">22 min</span>
+                <span class="film-minimal-dot"></span>
+                <span class="film-minimal-runtime">Tamil</span>
+              </div>
+              <div class="film-minimal-footer">
+                <span class="film-minimal-action">
+                  View Dossier
+                  <span class="film-action-arrow">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </span>
+                </span>
+                <span style="font-family:var(--font-ui); font-size:0.62rem; color:var(--text-subtle); letter-spacing:0.1em; text-transform:uppercase;">Dir. Deepak Kumar</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Minimal Film Card 2 -->
+          <article class="film-card-minimal reveal reveal-delay-3" data-film="2" onclick="openFilmModal(2)">
+            <div class="film-card-spotlight"></div>
+            <div class="film-minimal-poster-wrap">
+              <img src="assets/images/film_still_waters.jpg" alt="Still Waters" class="film-minimal-poster" loading="lazy" />
+              <div class="film-badge-top-left">
+                <span class="badge-chip verified">Official Selection</span>
+              </div>
+              <div class="film-badge-top-right">
+                <span class="badge-chip">2023</span>
+              </div>
+            </div>
+            <div class="film-minimal-body">
+              <h3 class="film-minimal-title">Still Waters</h3>
+              <div class="film-minimal-meta">
+                <span class="film-minimal-genre">Mystery</span>
+                <span class="film-minimal-dot"></span>
+                <span class="film-minimal-runtime">25 min</span>
+                <span class="film-minimal-dot"></span>
+                <span class="film-minimal-runtime">Tamil / English</span>
+              </div>
+              <div class="film-minimal-footer">
+                <span class="film-minimal-action">
+                  View Dossier
+                  <span class="film-action-arrow">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </span>
+                </span>
+                <span style="font-family:var(--font-ui); font-size:0.62rem; color:var(--text-subtle); letter-spacing:0.1em; text-transform:uppercase;">Dir. Deepak Kumar</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Minimal Film Card 3 -->
+          <article class="film-card-minimal reveal reveal-delay-4" data-film="3" onclick="openFilmModal(3)">
+            <div class="film-card-spotlight"></div>
+            <div class="film-minimal-poster-wrap">
+              <img src="assets/images/film_fractured.jpg" alt="Fractured" class="film-minimal-poster" loading="lazy" />
+              <div class="film-badge-top-left">
+                <span class="badge-chip verified">Audience Choice</span>
+              </div>
+              <div class="film-badge-top-right">
+                <span class="badge-chip">2022</span>
+              </div>
+            </div>
+            <div class="film-minimal-body">
+              <h3 class="film-minimal-title">Fractured</h3>
+              <div class="film-minimal-meta">
+                <span class="film-minimal-genre">Psychological</span>
+                <span class="film-minimal-dot"></span>
+                <span class="film-minimal-runtime">14 min</span>
+                <span class="film-minimal-dot"></span>
+                <span class="film-minimal-runtime">Tamil</span>
+              </div>
+              <div class="film-minimal-footer">
+                <span class="film-minimal-action">
+                  View Dossier
+                  <span class="film-action-arrow">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </span>
+                </span>
+                <span style="font-family:var(--font-ui); font-size:0.62rem; color:var(--text-subtle); letter-spacing:0.1em; text-transform:uppercase;">Dir. Deepak Kumar</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTION STATS BAND -->
+    <div class="stats-band">
+      <div class="stats-inner">
+        <div class="stat-card-glass reveal">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Films Produced</div>
+        </div>
+        <div class="stat-card-glass reveal reveal-delay-1">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Festival Selections</div>
+        </div>
+        <div class="stat-card-glass reveal reveal-delay-2">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Awards Won</div>
+        </div>
+        <div class="stat-card-glass reveal reveal-delay-3">
+          <div class="stat-num">40+</div>
+          <div class="stat-label">Crew Members</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT SECTION — DETAILED 3-CHANNEL STUDIO DISPATCH -->
+    <section class="section" id="contact">
+      <div class="section-header centered reveal">
+        <span class="section-label">Communication Channels</span>
+        <h2>Get In Touch</h2>
+        <div class="white-line centered"></div>
+        <p class="section-header-desc">
+          Connect directly with the appropriate studio division. Whether you are submitting a screenplay, proposing co-production, or coordinating logistics, our team is at your service.
+        </p>
+      </div>
+
+      <!-- 3-Channel Detailed Contact Grid -->
+      <div class="contact-grid-glass reveal">
+
+        <!-- 1. Production Company Mail -->
+        <article class="contact-card-glass">
+          <div class="contact-card-spotlight"></div>
+          <div class="contact-badge-header">
+            <span class="badge-chip verified">Studio &amp; Screenings</span>
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V7l7-4 7 4v14"></path>
+                <path d="M9 10h1"></path>
+                <path d="M9 14h1"></path>
+                <path d="M14 10h1"></path>
+                <path d="M14 14h1"></path>
+                <path d="M11 21v-4a1 1 0 0 1 1-1h0a1 1 0 0 1 1 1v4"></path>
+              </svg>
             </div>
           </div>
-          <div class="film-card-body">
-            <h3 class="film-card-title">Echoes of Dusk</h3>
-            <div class="film-meta">
-              <span class="film-meta-tag genre">Drama</span>
-              <span class="film-meta-tag">Short Film</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">◷</span>
-              <span class="film-meta-label">Runtime</span>
-              <span class="film-meta-value">18 min</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">✦</span>
-              <span class="film-meta-label">Director</span>
-              <span class="film-meta-value">Deepak Kumar</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">◈</span>
-              <span class="film-meta-label">Cast</span>
-              <span class="film-meta-value">Aryan Mehta, Priya Sen, Rohan Das</span>
-            </div>
-            <div class="film-divider"></div>
-            <p class="film-synopsis">A grieving musician discovers that the apartment above her holds the ghost of a melody she never finished — and the stranger who can complete it.</p>
-          </div>
+          <h3 class="contact-card-title">DK Productions</h3>
+          <p class="contact-card-role">Production Company Mail</p>
+          <p class="contact-card-desc">
+            Primary point of contact for official studio inquiries, film festival programming, distribution rights, press accreditation, and international co-production partnerships.
+          </p>
+          <a href="mailto:dk.productions-dir@gmail.com?subject=Studio%20Inquiry%20-%20DK%20Productions" class="contact-mail-pill" aria-label="Email Production Company">
+            <span>dk.productions-dir@gmail.com</span>
+            <span class="mail-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </span>
+          </a>
         </article>
 
-        <!-- Film 2 -->
-        <article class="film-card reveal reveal-delay-2" data-film="1">
-          <div class="film-poster-wrap">
-            <img src="assets/images/film_crimson.jpg" alt="The Crimson Letter" class="film-poster-img" />
-            <div class="film-year-badge">2023</div>
-            <div class="film-card-overlay">
-              <button class="film-watch-btn" onclick="openFilmModal(1); event.stopPropagation();">View Details</button>
+        <!-- 2. Director Mail ID -->
+        <article class="contact-card-glass">
+          <div class="contact-card-spotlight"></div>
+          <div class="contact-badge-header">
+            <span class="badge-chip verified">Creative &amp; Vision</span>
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+                <path d="m16 10 6-3.5v11L16 14"></path>
+                <circle cx="9" cy="12" r="2.5"></circle>
+              </svg>
             </div>
           </div>
-          <div class="film-card-body">
-            <h3 class="film-card-title">The Crimson Letter</h3>
-            <div class="film-meta">
-              <span class="film-meta-tag genre">Thriller</span>
-              <span class="film-meta-tag">Short Film</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">◷</span>
-              <span class="film-meta-label">Runtime</span>
-              <span class="film-meta-value">22 min</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">✦</span>
-              <span class="film-meta-label">Director</span>
-              <span class="film-meta-value">Deepak Kumar</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">◈</span>
-              <span class="film-meta-label">Cast</span>
-              <span class="film-meta-value">Karan Nair, Ananya Roy, Suresh Pillai</span>
-            </div>
-            <div class="film-divider"></div>
-            <p class="film-synopsis">A detective receives a handwritten letter claiming to predict the next murder — signed by the victim who hasn't died yet.</p>
-          </div>
+          <h3 class="contact-card-title">Dhinesh Karthick</h3>
+          <p class="contact-card-role">Director Mail ID</p>
+          <p class="contact-card-desc">
+            Direct channel to the director for narrative scripts, directorial collaborations, creative consultation, treatment reviews, and keynote or film panel discussions.
+          </p>
+          <a href="mailto:dhineshkarthick076@gmail.com?subject=Directorial%20Inquiry%20-%20Dhinesh%20Karthick" class="contact-mail-pill" aria-label="Email Director Dhinesh Karthick">
+            <span>dhineshkarthick076@gmail.com</span>
+            <span class="mail-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </span>
+          </a>
         </article>
 
-        <!-- Film 3 -->
-        <article class="film-card reveal reveal-delay-3" data-film="2">
-          <div class="film-poster-wrap">
-            <img src="assets/images/film_still_waters.jpg" alt="Still Waters" class="film-poster-img" />
-            <div class="film-year-badge">2023</div>
-            <div class="film-card-overlay">
-              <button class="film-watch-btn" onclick="openFilmModal(2); event.stopPropagation();">View Details</button>
+        <!-- 3. Admin Manager Mail -->
+        <article class="contact-card-glass">
+          <div class="contact-card-spotlight"></div>
+          <div class="contact-badge-header">
+            <span class="badge-chip verified">Operations &amp; Logistics</span>
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                <line x1="12" y1="12" x2="12" y2="12.01"></line>
+              </svg>
             </div>
           </div>
-          <div class="film-card-body">
-            <h3 class="film-card-title">Still Waters</h3>
-            <div class="film-meta">
-              <span class="film-meta-tag genre">Mystery</span>
-              <span class="film-meta-tag">Short Film</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">◷</span>
-              <span class="film-meta-label">Runtime</span>
-              <span class="film-meta-value">25 min</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">✦</span>
-              <span class="film-meta-label">Director</span>
-              <span class="film-meta-value">Deepak Kumar</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">◈</span>
-              <span class="film-meta-label">Cast</span>
-              <span class="film-meta-value">Meera Krishnan, Aditya Rao, Lena Thomas</span>
-            </div>
-            <div class="film-divider"></div>
-            <p class="film-synopsis">Two estranged siblings return to their childhood lake house and discover that their father's disappearance was not an accident.</p>
-          </div>
-        </article>
-
-        <!-- Film 4 -->
-        <article class="film-card reveal reveal-delay-4" data-film="3">
-          <div class="film-poster-wrap">
-            <img src="assets/images/film_fractured.jpg" alt="Fractured" class="film-poster-img" />
-            <div class="film-year-badge">2022</div>
-            <div class="film-card-overlay">
-              <button class="film-watch-btn" onclick="openFilmModal(3); event.stopPropagation();">View Details</button>
-            </div>
-          </div>
-          <div class="film-card-body">
-            <h3 class="film-card-title">Fractured</h3>
-            <div class="film-meta">
-              <span class="film-meta-tag genre">Psychological</span>
-              <span class="film-meta-tag">Short Film</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">◷</span>
-              <span class="film-meta-label">Runtime</span>
-              <span class="film-meta-value">14 min</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">✦</span>
-              <span class="film-meta-label">Director</span>
-              <span class="film-meta-value">Deepak Kumar</span>
-            </div>
-            <div class="film-meta-row">
-              <span class="film-meta-icon">◈</span>
-              <span class="film-meta-label">Cast</span>
-              <span class="film-meta-value">Nisha Verma, Rahul Bose, Divya Menon</span>
-            </div>
-            <div class="film-divider"></div>
-            <p class="film-synopsis">After a car crash, a woman begins to see seven versions of herself — each representing a choice she refused to make.</p>
-          </div>
+          <h3 class="contact-card-title">Kanagu BR</h3>
+          <p class="contact-card-role">Admin Manager Mail</p>
+          <p class="contact-card-desc">
+            Direct point of contact for shooting logistics, crew recruitment and auditions, call sheet scheduling, location procurement, equipment contracts, and accounting.
+          </p>
+          <a href="mailto:kanagubry@gmail.com" class="contact-mail-pill" aria-label="Email Admin Manager Kanagu BR">
+            <span>kanagubry@gmail.com</span>
+            <span class="mail-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </span>
+          </a>
         </article>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- STATS BAND -->
-  <div class="stats-band">
-    <div class="stats-inner">
-      <div class="reveal">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Films Produced</div>
-      </div>
-      <div class="reveal reveal-delay-1">
-        <div class="stat-num">12</div>
-        <div class="stat-label">Festival Selections</div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <div class="stat-num">5</div>
-        <div class="stat-label">Awards Won</div>
-      </div>
-      <div class="reveal reveal-delay-3">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Crew Members</div>
-      </div>
-    </div>
-  </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-logo">DK Productions</div>
+      <p class="footer-tagline">Chennai · Crafting Stories That Move</p>
+      <nav class="footer-links">
+        <a href="index.html">Films</a>
+        <a href="director.html">Director</a>
+        <a href="crew.html">Crew</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2024 DK Productions. All rights reserved.</p>
+    </footer>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="section-header centered reveal">
-      <span class="section-label">Get In Touch</span>
-      <h2>Contact Us</h2>
-      <div class="white-line centered"></div>
-      <p style="color:var(--muted); max-width:440px; margin:0 auto; font-family:var(--heading-font); font-style:italic; font-weight:300; font-size:1rem; line-height:1.8;">Have a story worth telling? We'd love to hear it. Reach out for collaborations, festival inquiries, or just to say hello.</p>
-    </div>
-    <div style="display:flex; justify-content:center; gap:1.2rem; flex-wrap:wrap; margin-top:2.5rem;" class="reveal">
-      <a href="mailto:dk.productions.dir@gmail.com" class="btn-primary">✉ &nbsp;Email Us</a>
-      <a href="director.html" class="btn-outline">Meet the Director →</a>
-    </div>
-  </section>
+  </div><!-- /site-content -->
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-logo">DK Productions</div>
-    <p class="footer-tagline">Crafting Stories That Move</p>
-    <nav class="footer-links">
-      <a href="index.html">Films</a>
-      <a href="director.html">Director</a>
-      <a href="crew.html">Crew</a>
-    </nav>
-    <p class="footer-copy">© 2024 DK Productions. All rights reserved.</p>
-  </footer>
-
-  <!-- FILM DETAIL MODAL -->
-  <div class="film-modal-overlay" id="filmModalOverlay">
-    <div class="film-modal" id="filmModal">
-      <button class="modal-close-btn" id="filmModalClose">✕</button>
-      <div class="film-modal-poster">
-        <img src="" alt="" id="filmModalPoster" />
+  <!-- FULL DETAIL FILM DOSSIER MODAL -->
+  <div class="film-modal-overlay" id="filmModalOverlay" role="dialog" aria-modal="true" aria-labelledby="dossierTitle">
+    <div class="film-modal-dossier" id="filmModalDossier">
+      <button class="modal-close-trigger" id="dossierCloseBtn" aria-label="Close Film Dossier">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      
+      <!-- Visual Column -->
+      <div class="modal-visual-col">
+        <div class="modal-poster-box">
+          <img src="" alt="" id="dossierPoster" class="modal-poster-img" />
+          <div class="modal-visual-gradient"></div>
+          <div class="modal-visual-badges">
+            <span class="badge-chip verified" id="dossierBadgeStatus">Official Festival Selection</span>
+            <span class="badge-chip" id="dossierBadgeYear">2024 · 4K UHD</span>
+          </div>
+        </div>
       </div>
-      <div class="film-modal-content">
-        <div class="film-modal-eyebrow" id="filmModalGenre"></div>
-        <h2 class="film-modal-title" id="filmModalTitle"></h2>
-        <div class="film-modal-year" id="filmModalYear"></div>
-        <div class="film-modal-divider"></div>
-        <div class="film-modal-row">
-          <span class="film-meta-label">Runtime</span>
-          <span class="film-meta-value" id="filmModalRuntime"></span>
+
+      <!-- Detail Column -->
+      <div class="modal-content-col">
+        <div class="modal-eyebrow-row">
+          <span class="badge-chip" id="dossierGenre">Drama · Short Film</span>
+          <span class="badge-chip" id="dossierRuntime">18 min</span>
+          <span class="badge-chip" id="dossierLang">Tamil / English</span>
         </div>
-        <div class="film-modal-row">
-          <span class="film-meta-label">Director</span>
-          <span class="film-meta-value" id="filmModalDirector"></span>
+
+        <h2 class="modal-title-main" id="dossierTitle">Echoes of Dusk</h2>
+
+        <p class="modal-logline" id="dossierLogline">
+          "The apartment above held the ghost of a melody she never finished."
+        </p>
+
+        <!-- Technical & Production Specs Grid -->
+        <div class="modal-specs-grid">
+          <div class="modal-spec-item">
+            <span class="spec-label">Director &amp; Writer</span>
+            <span class="spec-val" id="dossierDirector">Deepak Kumar</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-label">Cinematographer</span>
+            <span class="spec-val" id="dossierDop">Ravi Shankar</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-label">Lead Cast</span>
+            <span class="spec-val" id="dossierCast">Aryan Mehta, Priya Sen, Rohan Das</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-label">Music &amp; Score</span>
+            <span class="spec-val" id="dossierMusic">Rohan Das</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-label">Editor</span>
+            <span class="spec-val" id="dossierEditor">Nisha Verma</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-label">Format &amp; Audio</span>
+            <span class="spec-val" id="dossierFormat">2.39:1 Anamorphic · 5.1 Dolby</span>
+          </div>
         </div>
-        <div class="film-modal-row">
-          <span class="film-meta-label">Cast</span>
-          <span class="film-meta-value" id="filmModalCast"></span>
+
+        <!-- Full Synopsis -->
+        <div class="modal-synopsis-block">
+          <span class="synopsis-heading">Synopsis</span>
+          <p class="synopsis-text" id="dossierSynopsis"></p>
         </div>
-        <div class="film-modal-row">
-          <span class="film-meta-label">Language</span>
-          <span class="film-meta-value" id="filmModalLang"></span>
+
+        <!-- Actions -->
+        <div class="modal-actions-bar">
+          <a href="mailto:dk.productions-dir@gmail.com" class="btn-primary" id="dossierInquireBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Festival / Screening Request
+          </a>
+          <button class="btn-glass" onclick="closeFilmModal()">
+            Close Dossier
+          </button>
         </div>
-        <div class="film-modal-divider"></div>
-        <div class="film-modal-synopsis-label">Synopsis</div>
-        <p class="film-modal-synopsis" id="filmModalSynopsis"></p>
       </div>
     </div>
   </div>
 
   <script src="main.js"></script>
   <script>
-    /* Film Data */
-    const films = [
+    /* Full Film Production Dossiers Data */
+    const filmsData = [
       {
         title: 'Echoes of Dusk',
         genre: 'Drama · Short Film',
@@ -301,9 +525,15 @@
         runtime: '18 min',
         director: 'Deepak Kumar',
         cast: 'Aryan Mehta, Priya Sen, Rohan Das',
+        dop: 'Ravi Shankar',
+        music: 'Rohan Das',
+        editor: 'Nisha Verma',
+        format: '2.39:1 Anamorphic · 5.1 Dolby Atmos',
         lang: 'Tamil / English',
         poster: 'assets/images/film_echoes.jpg',
-        synopsis: 'A grieving musician discovers that the apartment above her holds the ghost of a melody she never finished — and the stranger who can complete it. A film about loss, memory, and the music we leave behind in the people we love.'
+        badge: 'Official Selection · Chennai Indie Fest',
+        logline: '"A grieving musician discovers that the apartment above her holds the ghost of a melody she never finished — and the stranger who can complete it."',
+        synopsis: 'A grieving musician in Chennai discovers that the apartment above her holds the ghost of a melody she never finished — and the stranger who can complete it. A poignant meditation on loss, artistic memory, and the unseen harmonies that connect strangers through time.'
       },
       {
         title: 'The Crimson Letter',
@@ -312,9 +542,15 @@
         runtime: '22 min',
         director: 'Deepak Kumar',
         cast: 'Karan Nair, Ananya Roy, Suresh Pillai',
+        dop: 'Ravi Shankar',
+        music: 'Rohan Das',
+        editor: 'Nisha Verma',
+        format: '2.39:1 Anamorphic · 5.1 Surround',
         lang: 'Tamil',
         poster: 'assets/images/film_crimson.jpg',
-        synopsis: 'A detective receives a handwritten letter claiming to predict the next murder — signed by the victim who hasn\'t died yet. As he races to prevent the crime, he begins to question whether fate can truly be written in advance.'
+        badge: 'Award Winner · Best Mystery Short',
+        logline: '"A detective receives a handwritten letter claiming to predict the next murder — signed by the victim who hasn\'t died yet."',
+        synopsis: 'A veteran detective receives a handwritten letter claiming to predict the next murder with horrifying precision — signed by a victim who is currently still alive. As he races against the countdown, he confronts whether destiny is preordained or orchestrated by a phantom in the shadows.'
       },
       {
         title: 'Still Waters',
@@ -323,9 +559,15 @@
         runtime: '25 min',
         director: 'Deepak Kumar',
         cast: 'Meera Krishnan, Aditya Rao, Lena Thomas',
+        dop: 'Ravi Shankar',
+        music: 'Rohan Das',
+        editor: 'Nisha Verma',
+        format: '2.39:1 Anamorphic · 5.1 Surround',
         lang: 'Tamil / English',
         poster: 'assets/images/film_still_waters.jpg',
-        synopsis: 'Two estranged siblings return to their childhood lake house and discover that their father\'s disappearance was not an accident. The closer they look at the still waters, the darker the reflections become.'
+        badge: 'Official Selection · Lake City Film Fest',
+        logline: '"Two estranged siblings return to their childhood lake house. The closer they look at the water, the darker the reflections become."',
+        synopsis: 'Two estranged siblings return to their secluded childhood lake house following their father\'s sudden disappearance. Unearthing old cassette tapes and hidden journal entries, they discover that his vanishing was far from accidental.'
       },
       {
         title: 'Fractured',
@@ -334,26 +576,43 @@
         runtime: '14 min',
         director: 'Deepak Kumar',
         cast: 'Nisha Verma, Rahul Bose, Divya Menon',
+        dop: 'Ravi Shankar',
+        music: 'Rohan Das',
+        editor: 'Nisha Verma',
+        format: '2.39:1 Anamorphic · 5.1 Master',
         lang: 'Tamil',
         poster: 'assets/images/film_fractured.jpg',
-        synopsis: 'After a car crash, a woman begins to see seven versions of herself — each representing a choice she refused to make. A surreal meditation on identity, regret, and the fractured self we carry in silence.'
+        badge: 'Audience Choice · Best Narrative Short',
+        logline: '"After a harrowing crash, a woman begins to see seven versions of herself — each representing a choice she refused to make."',
+        synopsis: 'After surviving an eerie nighttime car crash, a woman begins encountering seven divergent versions of herself in mirrors and shadows — each personifying a pivotal choice she abandoned. An intense, surreal examination of identity and unspoken remorse.'
       }
     ];
 
     const filmOverlay = document.getElementById('filmModalOverlay');
 
     function openFilmModal(idx) {
-      const f = films[idx];
-      document.getElementById('filmModalPoster').src    = f.poster;
-      document.getElementById('filmModalPoster').alt    = f.title;
-      document.getElementById('filmModalGenre').textContent    = f.genre;
-      document.getElementById('filmModalTitle').textContent    = f.title;
-      document.getElementById('filmModalYear').textContent     = f.year;
-      document.getElementById('filmModalRuntime').textContent  = f.runtime;
-      document.getElementById('filmModalDirector').textContent = f.director;
-      document.getElementById('filmModalCast').textContent     = f.cast;
-      document.getElementById('filmModalLang').textContent     = f.lang;
-      document.getElementById('filmModalSynopsis').textContent = f.synopsis;
+      const f = filmsData[idx];
+      if (!f) return;
+      document.getElementById('dossierPoster').src = f.poster;
+      document.getElementById('dossierPoster').alt = f.title;
+      document.getElementById('dossierTitle').textContent = f.title;
+      document.getElementById('dossierGenre').textContent = f.genre;
+      document.getElementById('dossierRuntime').textContent = f.runtime;
+      document.getElementById('dossierLang').textContent = f.lang;
+      document.getElementById('dossierBadgeYear').textContent = f.year + ' · 4K UHD';
+      document.getElementById('dossierBadgeStatus').textContent = f.badge;
+      document.getElementById('dossierLogline').textContent = f.logline;
+      document.getElementById('dossierDirector').textContent = f.director;
+      document.getElementById('dossierDop').textContent = f.dop;
+      document.getElementById('dossierCast').textContent = f.cast;
+      document.getElementById('dossierMusic').textContent = f.music;
+      document.getElementById('dossierEditor').textContent = f.editor;
+      document.getElementById('dossierFormat').textContent = f.format;
+      document.getElementById('dossierSynopsis').textContent = f.synopsis;
+
+      const emailSubject = encodeURIComponent('Screening / Festival Inquiry: ' + f.title);
+      document.getElementById('dossierInquireBtn').href = 'mailto:dk.productions-dir@gmail.com?subject=' + emailSubject;
+
       filmOverlay.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -364,16 +623,24 @@
     }
 
     window.openFilmModal = openFilmModal;
+    window.closeFilmModal = closeFilmModal;
 
-    document.getElementById('filmModalClose').addEventListener('click', closeFilmModal);
-    filmOverlay.addEventListener('click', (e) => { if (e.target === filmOverlay) closeFilmModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFilmModal(); });
+    document.getElementById('dossierCloseBtn')?.addEventListener('click', closeFilmModal);
+    filmOverlay?.addEventListener('click', (e) => {
+      if (e.target === filmOverlay) closeFilmModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && filmOverlay.classList.contains('open')) closeFilmModal();
+    });
 
-    /* Also open on card click */
-    document.querySelectorAll('.film-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const idx = parseInt(card.getAttribute('data-film'), 10);
-        if (!isNaN(idx)) openFilmModal(idx);
+    /* Interactive Pointer Spotlight on Film Cards */
+    document.querySelectorAll('.film-card-minimal').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
       });
     });
   </script>
