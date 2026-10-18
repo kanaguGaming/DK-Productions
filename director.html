@@ -90,15 +90,15 @@
 
       <div class="mobile-menu-footer">
         <div style="display:flex; flex-direction:column; gap:0.5rem;">
-          <a href="mailto:dk.productions-dir@gmail.com" class="mobile-menu-contact" style="color:var(--white); display:inline-flex; align-items:center; gap:0.4rem;">
+          <a href="mailto:dk.productions-dir@gmail.com" class="mobile-menu-contact" onclick="handleMailClick(event, 'dk.productions-dir@gmail.com', 'DK Productions Studio')" style="color:var(--white); display:inline-flex; align-items:center; gap:0.4rem;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             Studio: dk.productions-dir@gmail.com
           </a>
-          <a href="mailto:dhineshkarthick076@gmail.com" class="mobile-menu-contact" style="color:var(--silver); display:inline-flex; align-items:center; gap:0.4rem;">
+          <a href="mailto:dhineshkarthick076@gmail.com" class="mobile-menu-contact" onclick="handleMailClick(event, 'dhineshkarthick076@gmail.com', 'Director Dhinesh Karthick')" style="color:var(--silver); display:inline-flex; align-items:center; gap:0.4rem;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             Director: dhineshkarthick076@gmail.com
           </a>
-          <a href="mailto:kanagubry@gmail.com" class="mobile-menu-contact" style="color:var(--text-muted); display:inline-flex; align-items:center; gap:0.4rem;">
+          <a href="mailto:kanagubry@gmail.com" class="mobile-menu-contact" onclick="handleMailClick(event, 'kanagubry@gmail.com', 'Admin Manager Kanagu BR')" style="color:var(--text-muted); display:inline-flex; align-items:center; gap:0.4rem;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             Admin: kanagubry@gmail.com
           </a>
@@ -145,7 +145,7 @@
 
           <div style="display:flex; gap:1rem; flex-wrap:wrap;">
             <a href="index.html#films" class="btn-primary">View Films</a>
-            <a href="mailto:dhineshkarthick076@gmail.com?subject=Directorial%20Collaboration%20-%20Dhinesh%20Karthick" class="btn-glass">Collaborate (Director)</a>
+            <a href="mailto:dhineshkarthick076@gmail.com?subject=Directorial%20Collaboration%20-%20Dhinesh%20Karthick" class="btn-glass" onclick="handleMailClick(event, 'dhineshkarthick076@gmail.com', 'Directorial Collaboration - Dhinesh Karthick')">Collaborate (Director)</a>
           </div>
         </div>
       </div>
@@ -381,6 +381,12 @@
     </footer>
 
   </div><!-- /site-content -->
+
+  <!-- COPY TOAST FEEDBACK -->
+  <div class="copy-toast" id="copyToast" role="alert" aria-live="polite">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="copyToastText">Email copied to clipboard!</span>
+  </div>
 
   <script src="main.js"></script>
 </body>
