@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DK Productions — Crafting Stories That Move</title>
+  <meta name="description" content="DK Productions is an independent short film production company dedicated to crafting compelling, cinematic stories that resonate and inspire." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo.png" alt="DK Productions Logo" />
+      <div class="nav-logo-text">DK Productions<span>short films</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" id="nav-home">Films</a></li>
+      <li><a href="director.html" id="nav-director">Director</a></li>
+      <li><a href="crew.html" id="nav-crew">Crew</a></li>
+      <li><a href="#contact" id="nav-contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="index.html" onclick="closeMobileMenu()">Films</a>
+    <a href="director.html" onclick="closeMobileMenu()">Director</a>
+    <a href="crew.html" onclick="closeMobileMenu()">Crew</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-main" id="home">
+    <img src="assets/images/logo.png" alt="DK Productions" class="hero-logo" />
+    <p class="hero-eyebrow">Independent Short Film Production</p>
+    <h1 class="hero-title"><span class="dk">DK</span> Productions</h1>
+    <p class="hero-subtitle">Where Every Frame Tells a Story</p>
+    <div class="hero-divider"></div>
+    <p class="hero-description">
+      "We don't just make films — we craft experiences that linger long after the credits roll."
+    </p>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- FILMS SECTION -->
+  <section class="films-section" id="films">
+    <div class="films-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Our Productions</span>
+        <h2>Films</h2>
+        <div class="white-line"></div>
+        <p style="color:var(--muted); max-width:480px; font-size:0.9rem; font-family:var(--heading-font); font-style:italic; font-weight:300; line-height:1.8;">Each production is a labour of passion — stories born from silence, shaped by light, and brought to life by an extraordinary team.</p>
+      </div>
+
+      <div class="films-grid">
+
+        <!-- Film 1 -->
+        <article class="film-card reveal reveal-delay-1" data-film="0">
+          <div class="film-poster-wrap">
+            <img src="assets/images/film_echoes.jpg" alt="Echoes of Dusk" class="film-poster-img" />
+            <div class="film-year-badge">2024</div>
+            <div class="film-card-overlay">
+              <button class="film-watch-btn" onclick="openFilmModal(0); event.stopPropagation();">View Details</button>
+            </div>
+          </div>
+          <div class="film-card-body">
+            <h3 class="film-card-title">Echoes of Dusk</h3>
+            <div class="film-meta">
+              <span class="film-meta-tag genre">Drama</span>
+              <span class="film-meta-tag">Short Film</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">◷</span>
+              <span class="film-meta-label">Runtime</span>
+              <span class="film-meta-value">18 min</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">✦</span>
+              <span class="film-meta-label">Director</span>
+              <span class="film-meta-value">Deepak Kumar</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">◈</span>
+              <span class="film-meta-label">Cast</span>
+              <span class="film-meta-value">Aryan Mehta, Priya Sen, Rohan Das</span>
+            </div>
+            <div class="film-divider"></div>
+            <p class="film-synopsis">A grieving musician discovers that the apartment above her holds the ghost of a melody she never finished — and the stranger who can complete it.</p>
+          </div>
+        </article>
+
+        <!-- Film 2 -->
+        <article class="film-card reveal reveal-delay-2" data-film="1">
+          <div class="film-poster-wrap">
+            <img src="assets/images/film_crimson.jpg" alt="The Crimson Letter" class="film-poster-img" />
+            <div class="film-year-badge">2023</div>
+            <div class="film-card-overlay">
+              <button class="film-watch-btn" onclick="openFilmModal(1); event.stopPropagation();">View Details</button>
+            </div>
+          </div>
+          <div class="film-card-body">
+            <h3 class="film-card-title">The Crimson Letter</h3>
+            <div class="film-meta">
+              <span class="film-meta-tag genre">Thriller</span>
+              <span class="film-meta-tag">Short Film</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">◷</span>
+              <span class="film-meta-label">Runtime</span>
+              <span class="film-meta-value">22 min</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">✦</span>
+              <span class="film-meta-label">Director</span>
+              <span class="film-meta-value">Deepak Kumar</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">◈</span>
+              <span class="film-meta-label">Cast</span>
+              <span class="film-meta-value">Karan Nair, Ananya Roy, Suresh Pillai</span>
+            </div>
+            <div class="film-divider"></div>
+            <p class="film-synopsis">A detective receives a handwritten letter claiming to predict the next murder — signed by the victim who hasn't died yet.</p>
+          </div>
+        </article>
+
+        <!-- Film 3 -->
+        <article class="film-card reveal reveal-delay-3" data-film="2">
+          <div class="film-poster-wrap">
+            <img src="assets/images/film_still_waters.jpg" alt="Still Waters" class="film-poster-img" />
+            <div class="film-year-badge">2023</div>
+            <div class="film-card-overlay">
+              <button class="film-watch-btn" onclick="openFilmModal(2); event.stopPropagation();">View Details</button>
+            </div>
+          </div>
+          <div class="film-card-body">
+            <h3 class="film-card-title">Still Waters</h3>
+            <div class="film-meta">
+              <span class="film-meta-tag genre">Mystery</span>
+              <span class="film-meta-tag">Short Film</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">◷</span>
+              <span class="film-meta-label">Runtime</span>
+              <span class="film-meta-value">25 min</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">✦</span>
+              <span class="film-meta-label">Director</span>
+              <span class="film-meta-value">Deepak Kumar</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">◈</span>
+              <span class="film-meta-label">Cast</span>
+              <span class="film-meta-value">Meera Krishnan, Aditya Rao, Lena Thomas</span>
+            </div>
+            <div class="film-divider"></div>
+            <p class="film-synopsis">Two estranged siblings return to their childhood lake house and discover that their father's disappearance was not an accident.</p>
+          </div>
+        </article>
+
+        <!-- Film 4 -->
+        <article class="film-card reveal reveal-delay-4" data-film="3">
+          <div class="film-poster-wrap">
+            <img src="assets/images/film_fractured.jpg" alt="Fractured" class="film-poster-img" />
+            <div class="film-year-badge">2022</div>
+            <div class="film-card-overlay">
+              <button class="film-watch-btn" onclick="openFilmModal(3); event.stopPropagation();">View Details</button>
+            </div>
+          </div>
+          <div class="film-card-body">
+            <h3 class="film-card-title">Fractured</h3>
+            <div class="film-meta">
+              <span class="film-meta-tag genre">Psychological</span>
+              <span class="film-meta-tag">Short Film</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">◷</span>
+              <span class="film-meta-label">Runtime</span>
+              <span class="film-meta-value">14 min</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">✦</span>
+              <span class="film-meta-label">Director</span>
+              <span class="film-meta-value">Deepak Kumar</span>
+            </div>
+            <div class="film-meta-row">
+              <span class="film-meta-icon">◈</span>
+              <span class="film-meta-label">Cast</span>
+              <span class="film-meta-value">Nisha Verma, Rahul Bose, Divya Menon</span>
+            </div>
+            <div class="film-divider"></div>
+            <p class="film-synopsis">After a car crash, a woman begins to see seven versions of herself — each representing a choice she refused to make.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="stats-inner">
+      <div class="reveal">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Films Produced</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Festival Selections</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Awards Won</div>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Crew Members</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-header centered reveal">
+      <span class="section-label">Get In Touch</span>
+      <h2>Contact Us</h2>
+      <div class="white-line centered"></div>
+      <p style="color:var(--muted); max-width:440px; margin:0 auto; font-family:var(--heading-font); font-style:italic; font-weight:300; font-size:1rem; line-height:1.8;">Have a story worth telling? We'd love to hear it. Reach out for collaborations, festival inquiries, or just to say hello.</p>
+    </div>
+    <div style="display:flex; justify-content:center; gap:1.2rem; flex-wrap:wrap; margin-top:2.5rem;" class="reveal">
+      <a href="mailto:dk.productions.dir@gmail.com" class="btn-primary">✉ &nbsp;Email Us</a>
+      <a href="director.html" class="btn-outline">Meet the Director →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">DK Productions</div>
+    <p class="footer-tagline">Crafting Stories That Move</p>
+    <nav class="footer-links">
+      <a href="index.html">Films</a>
+      <a href="director.html">Director</a>
+      <a href="crew.html">Crew</a>
+    </nav>
+    <p class="footer-copy">© 2024 DK Productions. All rights reserved.</p>
+  </footer>
+
+  <!-- FILM DETAIL MODAL -->
+  <div class="film-modal-overlay" id="filmModalOverlay">
+    <div class="film-modal" id="filmModal">
+      <button class="modal-close-btn" id="filmModalClose">✕</button>
+      <div class="film-modal-poster">
+        <img src="" alt="" id="filmModalPoster" />
+      </div>
+      <div class="film-modal-content">
+        <div class="film-modal-eyebrow" id="filmModalGenre"></div>
+        <h2 class="film-modal-title" id="filmModalTitle"></h2>
+        <div class="film-modal-year" id="filmModalYear"></div>
+        <div class="film-modal-divider"></div>
+        <div class="film-modal-row">
+          <span class="film-meta-label">Runtime</span>
+          <span class="film-meta-value" id="filmModalRuntime"></span>
+        </div>
+        <div class="film-modal-row">
+          <span class="film-meta-label">Director</span>
+          <span class="film-meta-value" id="filmModalDirector"></span>
+        </div>
+        <div class="film-modal-row">
+          <span class="film-meta-label">Cast</span>
+          <span class="film-meta-value" id="filmModalCast"></span>
+        </div>
+        <div class="film-modal-row">
+          <span class="film-meta-label">Language</span>
+          <span class="film-meta-value" id="filmModalLang"></span>
+        </div>
+        <div class="film-modal-divider"></div>
+        <div class="film-modal-synopsis-label">Synopsis</div>
+        <p class="film-modal-synopsis" id="filmModalSynopsis"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    /* Film Data */
+    const films = [
+      {
+        title: 'Echoes of Dusk',
+        genre: 'Drama · Short Film',
+        year: '2024',
+        runtime: '18 min',
+        director: 'Deepak Kumar',
+        cast: 'Aryan Mehta, Priya Sen, Rohan Das',
+        lang: 'Tamil / English',
+        poster: 'assets/images/film_echoes.jpg',
+        synopsis: 'A grieving musician discovers that the apartment above her holds the ghost of a melody she never finished — and the stranger who can complete it. A film about loss, memory, and the music we leave behind in the people we love.'
+      },
+      {
+        title: 'The Crimson Letter',
+        genre: 'Thriller · Short Film',
+        year: '2023',
+        runtime: '22 min',
+        director: 'Deepak Kumar',
+        cast: 'Karan Nair, Ananya Roy, Suresh Pillai',
+        lang: 'Tamil',
+        poster: 'assets/images/film_crimson.jpg',
+        synopsis: 'A detective receives a handwritten letter claiming to predict the next murder — signed by the victim who hasn\'t died yet. As he races to prevent the crime, he begins to question whether fate can truly be written in advance.'
+      },
+      {
+        title: 'Still Waters',
+        genre: 'Mystery · Short Film',
+        year: '2023',
+        runtime: '25 min',
+        director: 'Deepak Kumar',
+        cast: 'Meera Krishnan, Aditya Rao, Lena Thomas',
+        lang: 'Tamil / English',
+        poster: 'assets/images/film_still_waters.jpg',
+        synopsis: 'Two estranged siblings return to their childhood lake house and discover that their father\'s disappearance was not an accident. The closer they look at the still waters, the darker the reflections become.'
+      },
+      {
+        title: 'Fractured',
+        genre: 'Psychological Drama · Short Film',
+        year: '2022',
+        runtime: '14 min',
+        director: 'Deepak Kumar',
+        cast: 'Nisha Verma, Rahul Bose, Divya Menon',
+        lang: 'Tamil',
+        poster: 'assets/images/film_fractured.jpg',
+        synopsis: 'After a car crash, a woman begins to see seven versions of herself — each representing a choice she refused to make. A surreal meditation on identity, regret, and the fractured self we carry in silence.'
+      }
+    ];
+
+    const filmOverlay = document.getElementById('filmModalOverlay');
+
+    function openFilmModal(idx) {
+      const f = films[idx];
+      document.getElementById('filmModalPoster').src    = f.poster;
+      document.getElementById('filmModalPoster').alt    = f.title;
+      document.getElementById('filmModalGenre').textContent    = f.genre;
+      document.getElementById('filmModalTitle').textContent    = f.title;
+      document.getElementById('filmModalYear').textContent     = f.year;
+      document.getElementById('filmModalRuntime').textContent  = f.runtime;
+      document.getElementById('filmModalDirector').textContent = f.director;
+      document.getElementById('filmModalCast').textContent     = f.cast;
+      document.getElementById('filmModalLang').textContent     = f.lang;
+      document.getElementById('filmModalSynopsis').textContent = f.synopsis;
+      filmOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFilmModal() {
+      filmOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    window.openFilmModal = openFilmModal;
+
+    document.getElementById('filmModalClose').addEventListener('click', closeFilmModal);
+    filmOverlay.addEventListener('click', (e) => { if (e.target === filmOverlay) closeFilmModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFilmModal(); });
+
+    /* Also open on card click */
+    document.querySelectorAll('.film-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const idx = parseInt(card.getAttribute('data-film'), 10);
+        if (!isNaN(idx)) openFilmModal(idx);
+      });
+    });
+  </script>
+</body>
+</html>

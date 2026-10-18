@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepak Kumar — Director | DK Productions</title>
+  <meta name="description" content="Meet Deepak Kumar — passionate short film director and founder of DK Productions. Explore his films, skills, and journey in independent cinema." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo.jpg" alt="DK Productions Logo" />
+      <div class="nav-logo-text">DK Productions<span>short films</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" id="nav-home">Films</a></li>
+      <li><a href="director.html" class="active" id="nav-director">Director</a></li>
+      <li><a href="crew.html" id="nav-crew">Crew</a></li>
+      <li><a href="index.html#contact" id="nav-contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="index.html" onclick="closeMobileMenu()">Films</a>
+    <a href="director.html" onclick="closeMobileMenu()">Director</a>
+    <a href="crew.html" onclick="closeMobileMenu()">Crew</a>
+    <a href="index.html#contact" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- DIRECTOR HERO -->
+  <header class="director-hero">
+    <div class="director-hero-visual">
+      <img src="assets/images/director.jpg" alt="Deepak Kumar — Director" />
+    </div>
+    <div class="director-hero-content">
+      <span class="section-label" style="animation: fadeUp 0.8s ease 0.2s both; opacity:0;">Director &amp; Producer</span>
+      <h1 class="director-name" style="animation: fadeUp 0.8s ease 0.4s both; opacity:0;">Deepak<br/>Kumar</h1>
+      <p class="director-title-role" style="animation: fadeUp 0.8s ease 0.6s both; opacity:0;">Founder · DK Productions</p>
+      <p class="director-bio" style="animation: fadeUp 0.8s ease 0.8s both; opacity:0;">
+        A storyteller at heart, Deepak Kumar has spent the last six years pushing the boundaries of short-form cinema. His films are defined by their moody visual language, emotionally complex characters, and a fierce commitment to authentic human experience. From psychological thrillers to quiet dramatic portraits, each production bears his unmistakable cinematic fingerprint.
+      </p>
+      <div class="director-stats" style="animation: fadeUp 0.8s ease 1s both; opacity:0;">
+        <div>
+          <div class="director-stat-num">4</div>
+          <div class="director-stat-label">Films Directed</div>
+        </div>
+        <div>
+          <div class="director-stat-num">12</div>
+          <div class="director-stat-label">Festivals</div>
+        </div>
+        <div>
+          <div class="director-stat-num">5</div>
+          <div class="director-stat-label">Awards</div>
+        </div>
+        <div>
+          <div class="director-stat-num">6+</div>
+          <div class="director-stat-label">Years Active</div>
+        </div>
+      </div>
+      <div class="director-cta" style="animation: fadeUp 0.8s ease 1.2s both; opacity:0;">
+        <a href="index.html#films" class="btn-primary">View Films</a>
+        <a href="index.html#contact" class="btn-outline">Collaborate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FILMOGRAPHY STRIP -->
+  <section style="padding: 5rem 0; border-top: 1px solid var(--border);">
+    <div class="section" style="padding-top:0; padding-bottom:0; max-width:1400px;">
+      <div class="section-header reveal">
+        <span class="section-label">Works</span>
+        <h2>Filmography</h2>
+        <div class="white-line"></div>
+      </div>
+      <div class="filmstrip reveal">
+        <div class="filmstrip-item">
+          <img src="assets/images/film_echoes.jpg" alt="Echoes of Dusk" class="filmstrip-thumb" />
+          <div class="filmstrip-label">
+            <div class="filmstrip-title">Echoes of Dusk</div>
+            <div class="filmstrip-meta">2024 · Drama · 18 min</div>
+          </div>
+        </div>
+        <div class="filmstrip-item">
+          <img src="assets/images/film_crimson.jpg" alt="The Crimson Letter" class="filmstrip-thumb" />
+          <div class="filmstrip-label">
+            <div class="filmstrip-title">The Crimson Letter</div>
+            <div class="filmstrip-meta">2023 · Thriller · 22 min</div>
+          </div>
+        </div>
+        <div class="filmstrip-item">
+          <img src="assets/images/film_still_waters.jpg" alt="Still Waters" class="filmstrip-thumb" />
+          <div class="filmstrip-label">
+            <div class="filmstrip-title">Still Waters</div>
+            <div class="filmstrip-meta">2023 · Mystery · 25 min</div>
+          </div>
+        </div>
+        <div class="filmstrip-item">
+          <img src="assets/images/film_fractured.jpg" alt="Fractured" class="filmstrip-thumb" />
+          <div class="filmstrip-label">
+            <div class="filmstrip-title">Fractured</div>
+            <div class="filmstrip-meta">2022 · Psychological · 14 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section style="background: var(--deep); padding: 7rem 0; border-top: 1px solid var(--border);">
+    <div class="section" style="padding-top:0; padding-bottom:0;">
+      <div class="section-header reveal">
+        <span class="section-label">Craft</span>
+        <h2>Skills &amp; Expertise</h2>
+        <div class="white-line"></div>
+      </div>
+      <div class="skills-grid" id="skillsGrid">
+        <div class="skill-item reveal">
+          <div class="skill-name">Direction</div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct: 95%;"></div></div>
+          <div class="skill-percent">95%</div>
+        </div>
+        <div class="skill-item reveal reveal-delay-1">
+          <div class="skill-name">Screenwriting</div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct: 88%;"></div></div>
+          <div class="skill-percent">88%</div>
+        </div>
+        <div class="skill-item reveal reveal-delay-2">
+          <div class="skill-name">Cinematography</div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct: 80%;"></div></div>
+          <div class="skill-percent">80%</div>
+        </div>
+        <div class="skill-item reveal reveal-delay-3">
+          <div class="skill-name">Production Design</div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct: 75%;"></div></div>
+          <div class="skill-percent">75%</div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-name">Film Editing</div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct: 82%;"></div></div>
+          <div class="skill-percent">82%</div>
+        </div>
+        <div class="skill-item reveal reveal-delay-1">
+          <div class="skill-name">Sound Design</div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct: 70%;"></div></div>
+          <div class="skill-percent">70%</div>
+        </div>
+        <div class="skill-item reveal reveal-delay-2">
+          <div class="skill-name">Producing</div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct: 90%;"></div></div>
+          <div class="skill-percent">90%</div>
+        </div>
+        <div class="skill-item reveal reveal-delay-3">
+          <div class="skill-name">Colour Grading</div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct: 78%;"></div></div>
+          <div class="skill-percent">78%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE & AWARDS -->
+  <section class="section" style="padding-top:7rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start;">
+
+      <!-- Timeline -->
+      <div>
+        <div class="section-header reveal">
+          <span class="section-label">Journey</span>
+          <h2>Experience</h2>
+          <div class="white-line"></div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-role">Director &amp; Producer</div>
+            <div class="timeline-project">Echoes of Dusk — DK Productions</div>
+          </div>
+          <div class="timeline-item reveal reveal-delay-1">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-role">Director &amp; Writer</div>
+            <div class="timeline-project">The Crimson Letter &amp; Still Waters — DK Productions</div>
+          </div>
+          <div class="timeline-item reveal reveal-delay-2">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-role">Director &amp; Editor</div>
+            <div class="timeline-project">Fractured — DK Productions</div>
+          </div>
+          <div class="timeline-item reveal reveal-delay-3">
+            <div class="timeline-year">2020 – 2021</div>
+            <div class="timeline-role">Assistant Director</div>
+            <div class="timeline-project">Various Independent Productions — South India</div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2018 – 2020</div>
+            <div class="timeline-role">Film Studies Graduate</div>
+            <div class="timeline-project">Bachelor of Film Arts — Chennai Film Academy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Awards -->
+      <div>
+        <div class="section-header reveal">
+          <span class="section-label">Recognition</span>
+          <h2>Awards &amp; Festivals</h2>
+          <div class="white-line"></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+          <div class="award-card reveal">
+            <div class="award-year">Best Short Film · 2024</div>
+            <div class="award-title">Kochi International Short Film Festival</div>
+            <div class="award-film">Echoes of Dusk</div>
+          </div>
+          <div class="award-card reveal reveal-delay-1">
+            <div class="award-year">Best Director · 2023</div>
+            <div class="award-title">Chennai Independent Film Awards</div>
+            <div class="award-film">The Crimson Letter</div>
+          </div>
+          <div class="award-card reveal reveal-delay-2">
+            <div class="award-year">Official Selection · 2023</div>
+            <div class="award-title">Mumbai International Film Festival</div>
+            <div class="award-film">Still Waters</div>
+          </div>
+          <div class="award-card reveal reveal-delay-3">
+            <div class="award-year">Best Screenplay · 2022</div>
+            <div class="award-title">Bengaluru Short Film Festival</div>
+            <div class="award-film">Fractured</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 7rem 2rem; text-align:center; background: var(--deep);">
+    <div style="max-width:680px; margin:0 auto;" class="reveal">
+      <div style="font-family:var(--heading-font); font-size:5rem; color:rgba(255,255,255,0.1); line-height:0.6; margin-bottom:2rem; font-style:italic;">"</div>
+      <p style="font-family:var(--heading-font); font-size:clamp(1.2rem, 3vw, 1.8rem); color:var(--silver); line-height:1.7; font-style:italic; font-weight:300;">Cinema is the ultimate empathy machine. I make films not to show what I see, but to make you feel what I feel.</p>
+      <div style="margin-top:2rem; font-family:var(--ui-font); font-size:0.62rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle);">— Deepak Kumar</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">DK Productions</div>
+    <p class="footer-tagline">Crafting Stories That Move</p>
+    <nav class="footer-links">
+      <a href="index.html">Films</a>
+      <a href="director.html">Director</a>
+      <a href="crew.html">Crew</a>
+    </nav>
+    <p class="footer-copy">© 2024 DK Productions. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
