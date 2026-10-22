@@ -256,6 +256,43 @@ function handleMailClick(event, email, subject) {
 }
 window.handleMailClick = handleMailClick;
 
+/**
+ * Opens Gmail web compose in a new tab with pre-filled fields (To, CC, Subject, Body).
+ * Also copies the primary email and displays a status toast.
+ */
+function openGmailCompose({ to, cc, subject, body }) {
+  const params = new URLSearchParams();
+  params.append('view', 'cm');
+  params.append('fs', '1');
+  if (to) params.append('to', to);
+  if (cc) params.append('cc', cc);
+  if (subject) params.append('su', subject);
+  if (body) params.append('body', body);
+
+  const gmailUrl = `https://mail.google.com/mail/?${params.toString()}`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(to).catch(() => {});
+  }
+
+  showToast(`Opening Gmail compose... (${to})`);
+
+  window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+}
+window.openGmailCompose = openGmailCompose;
+
+/**
+ * Builds mailto URL with cc, subject, and body as fallback
+ */
+function getMailtoUrl({ to, cc, subject, body }) {
+  const parts = [];
+  if (cc) parts.push(`cc=${encodeURIComponent(cc)}`);
+  if (subject) parts.push(`subject=${encodeURIComponent(subject)}`);
+  if (body) parts.push(`body=${encodeURIComponent(body)}`);
+  return `mailto:${to}${parts.length ? '?' + parts.join('&') : ''}`;
+}
+window.getMailtoUrl = getMailtoUrl;
+
 /* ==========================================================================
    8. INITIALIZATION
    ========================================================================== */

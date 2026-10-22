@@ -5,6 +5,37 @@
 
 'use strict';
 
+// Mail & Gmail helpers
+function openGmailCompose({ to, cc, subject, body }) {
+  const params = new URLSearchParams();
+  params.append('view', 'cm');
+  params.append('fs', '1');
+  if (to) params.append('to', to);
+  if (cc) params.append('cc', cc);
+  if (subject) params.append('su', subject);
+  if (body) params.append('body', body);
+
+  const gmailUrl = `https://mail.google.com/mail/?${params.toString()}`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(to).catch(() => {});
+  }
+
+  if (typeof showToast === 'function') {
+    showToast(`Opening Gmail compose... (${to})`);
+  }
+
+  window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+}
+
+function getMailtoUrl({ to, cc, subject, body }) {
+  const parts = [];
+  if (cc) parts.push(`cc=${encodeURIComponent(cc)}`);
+  if (subject) parts.push(`subject=${encodeURIComponent(subject)}`);
+  if (body) parts.push(`body=${encodeURIComponent(body)}`);
+  return `mailto:${to}${parts.length ? '?' + parts.join('&') : ''}`;
+}
+
 /* ==========================================================================
    1. CREW PROFILE DATA (Single Source of Truth)
    Add, remove, or edit crew members here. 
@@ -24,128 +55,81 @@ const crewData = [
     shortBio: 'Multi-faceted cinematic artist commanding the screen as lead actor, while steering narrative vision through direction and screenplay.',
     tagline: '"Stories demand honesty — whether behind the lens or in front of it."',
     bio: 'Mr KG is a multi-disciplinary cinematic artist serving as lead actor, cinematographer, and screenwriter. His work is characterised by fearless emotional exposure, razor-sharp narrative instinct, and total creative vision across every stage of production from script to screen.',
-    films: ['Echoes of Dusk', 'Fractured'],
+    films: ['Troop'],
   },
   {
     id: 2,
-    name: 'Gokul Raj',
-    roles: ['Character Actor'],
-    categories: ['actor'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Theatre Artist',
-    shortBio: 'Character actor known for nuanced portrayals of morally ambiguous figures with commanding physicality.',
-    tagline: '"I don\'t play villains. I play people who made different choices than you."',
-    bio: 'Karan Nair specialises in morally complex characters, bringing depth and unpredictability to roles that lesser actors might play one-dimensionally. His background in theatre has given him an exceptional command of physical storytelling and stage presence that translates powerfully on camera.',
-    films: ['The Crimson Letter', 'Still Waters'],
+    name: 'Valavan',
+    roles: ['Cinematographer', 'Actor'],
+    categories: ['camera', 'actor'],
+    portrait: 'assets/images/valavan.jpeg',
+    badge: 'Cinematography & Cast',
+    shortBio: 'Cinematographer and actor who handled cinematography on Chidambaram and Adikaathir 02, and featured in cast for Adikaathir 01 and 02.',
+    tagline: '“Storytelling through visual craft and performance.”',
+    bio: 'Valavan is a key creative contributor to DK Productions, bringing dual expertise behind the camera and in front of it. He served as cinematographer for Chidambaram and Adikaathir 02, while also performing as part of the cast in both Adikaathir 01 and Adikaathir 02.',
+    films: ['Chidambaram', 'Adikaathir 02', 'Adikaathir 01']
   },
   {
     id: 3,
-    name: '',
-    roles: ['Lead Actress'],
-    categories: ['actor'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Kalakshetra',
-    shortBio: 'Stage-trained actress bringing theatrical depth and internal conflict to intimate short film narratives.',
-    tagline: '"Short films demand everything — there\'s no hiding behind a long runtime."',
-    bio: 'Meera Krishnan\'s stage training is evident in every performance — precise, physical, fully committed. She has an extraordinary ability to convey internal conflict through the smallest gestures, making her perfect for the intimate, close-up world of short cinema. She is based in Chennai and is an alumna of Kalakshetra Foundation.',
-    films: ['Still Waters', 'Fractured'],
+    name: 'Gokulrajan',
+    roles: ['Cinematographer', 'Actor'],
+    categories: ['camera', 'actor'],
+    portrait: 'assets/images/gokulrajan.jpeg',
+    badge: 'Cinematography & Cast',
+    shortBio: 'Cinematographer and actor behind the camera on Adikaathir 01, Oru naal, Sanjaari, and Love at metro sight.',
+    tagline: '“Framing emotion and embodying narrative character.”',
+    bio: 'Gokulrajan is a prolific collaborator across DK Productions. His camera work defines Adikaathir 01, Oru naal, Sanjaari, and Love at metro sight. He also appears as an actor in Adikaathir 02, Oru naal, and Sanjaari.',
+    films: ['Adikaathir 02', 'Adikaathir 01', 'Oru naal', 'Sanjaari', 'Love at metro sight']
   },
   {
     id: 4,
-    name: 'Ravi Shankar',
-    roles: ['Director of Photography'],
-    categories: ['camera'],
-    portrait: 'assets/images/kg.png',
-    badge: 'DOP · Core Team',
-    shortBio: 'Visual storyteller with mastery of natural light, handheld texture, and wide-format anamorphic lenses.',
-    tagline: '"Light is the language. The camera is just the pen."',
-    bio: 'Ravi Shankar is DK Productions\' long-standing cinematographer and co-creative force. His mastery of natural and practical lighting gives every DK Production its signature look: dark, textured, and emotionally charged. He has shot all four of the studio\'s productions and is known for his meticulous pre-production preparation and in-the-moment intuition.',
-    films: ['Echoes of Dusk', 'The Crimson Letter', 'Still Waters', 'Fractured'],
+    name: 'Gandhi',
+    roles: ['Cinematographer', 'Actor'],
+    categories: ['camera', 'actor'],
+    portrait: 'assets/images/gandhi.jpeg',
+    badge: 'Cinematography & Cast',
+    shortBio: 'Cinematographer and cast member on Adikaathir 02.',
+    tagline: '“Bringing focus, texture, and character to screen.”',
+    bio: 'Gandhi contributed both behind the lens as cinematographer and in front of the camera as actor on the production of Adikaathir 02.',
+    films: ['Adikaathir 02']
   },
   {
     id: 5,
-    name: 'Anand Pillai',
-    roles: ['Steadicam & Cam Op'],
-    categories: ['camera'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Camera Dept',
-    shortBio: 'Precision camera operator specialising in fluid movement and intricate single-take sequences.',
-    tagline: '"A moving camera breathes life into static moments."',
-    bio: 'Anand Pillai is a camera operator known for his instinctive sense of movement and composition. Whether operating a Steadicam through a long take or shooting handheld in tight quarters, Anand adapts seamlessly to the demands of the story. He has collaborated with Ravi Shankar across multiple productions.',
-    films: ['Echoes of Dusk', 'The Crimson Letter'],
+    name: 'Akashkumar',
+    roles: ['Actor'],
+    categories: ['actor'],
+    portrait: 'assets/images/akashkumar.jpeg',
+    badge: 'Cast Member',
+    shortBio: 'Featured actor in Adikaathir 02.',
+    tagline: '“Living the scene with quiet intensity.”',
+    bio: 'Akashkumar is a featured actor in the cast of Adikaathir 02, bringing dramatic presence to the ensemble.',
+    films: ['Adikaathir 02']
   },
   {
     id: 6,
-    name: 'Nisha Verma',
-    roles: ['Film Editor'],
-    categories: ['editor'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Lead Editor',
-    shortBio: 'Montage virtuoso who sculpts tension, rhythm, and emotional restraint from raw footage.',
-    tagline: '"Editing is not just cutting — it is the final rewrite of the script."',
-    bio: 'Nisha Verma is the invisible architect behind every DK production. Her editing rhythms are precise, deliberate, and always emotionally intelligent. She is known for finding unexpected connections between shots and building tension through silence and restraint rather than rapid cutting. She has edited all four DK Productions releases.',
-    films: ['Echoes of Dusk', 'The Crimson Letter', 'Still Waters', 'Fractured'],
+    name: 'Karthika',
+    roles: ['Actress'],
+    categories: ['actor'],
+    portrait: 'assets/images/karthika.jpeg',
+    badge: 'Actress',
+    shortBio: 'Actress in Sanjaari.',
+    tagline: '“Embodying the emotional spirit of the wanderer.”',
+    bio: 'Karthika stars in Sanjaari, bringing warmth, depth, and vulnerability to the production.',
+    films: ['Sanjaari']
   },
   {
     id: 7,
-    name: 'Rohan Das',
-    roles: ['Music Composer'],
-    categories: ['music'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Score Artist',
-    shortBio: 'Composer of atmospheric, genre-defying scores that blur the line between sound and silence.',
-    tagline: '"Music doesn\'t accompany a film — it completes it."',
-    bio: 'Rohan Das is a composer and sound artist whose work defies easy categorisation. Drawing from classical Indian music, jazz, and electronic soundscapes, he creates scores that feel both ancient and urgently contemporary. His work on "Echoes of Dusk" was cited by critics as a defining element of the film\'s emotional power.',
-    films: ['Echoes of Dusk', 'Fractured', 'Still Waters'],
+    name: 'Swetha',
+    roles: ['Actress'],
+    categories: ['actor'],
+    portrait: 'assets/images/swetha.jpeg',
+    badge: 'Actress'  ,
+    shortBio: 'Actress starring in Love at metro sight.',
+    tagline: '“Capturing subtle romance in fleeting moments.”',
+    bio: 'Swetha stars in Love at metro sight, delivering an expressive, memorable performance.',
+    films: ['Love at metro sight']
   },
-  {
-    id: 8,
-    name: 'Divya Menon',
-    roles: ['1st Assistant Director'],
-    categories: ['ad'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Floor Producer',
-    shortBio: 'Meticulous AD who transforms chaotic sets into well-oiled, highly disciplined creative machines.',
-    tagline: '"The best AD is one the director never has to think about."',
-    bio: 'Divya Menon is the operational backbone of every DK Productions shoot. As First AD, she runs the floor with quiet authority, ensuring that the director\'s creative vision is never compromised by logistical chaos. She is meticulous in pre-production, creative under pressure, and universally respected by every crew member she works with.',
-    films: ['The Crimson Letter', 'Still Waters', 'Echoes of Dusk'],
-  },
-  {
-    id: 9,
-    name: 'Suresh Pillai',
-    roles: ['Sound Designer'],
-    categories: ['sound'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Foley & Mix',
-    shortBio: 'Award-winning sound designer sculpting tactile acoustic realities through Foley, ambience, and spatial sound.',
-    tagline: '"Half of what you see in a film, you actually hear."',
-    bio: 'Suresh Pillai is an award-winning sound designer with a gift for creating sonic environments that feel utterly immersive. His work goes far beyond dialogue and music — he sculpts the ambient world of each film with painstaking care, using field recordings, Foley, and original sound design to build a fully inhabited acoustic reality.',
-    films: ['Echoes of Dusk', 'The Crimson Letter', 'Still Waters', 'Fractured'],
-  },
-  {
-    id: 10,
-    name: 'Aditya Rao',
-    roles: ['Production Designer'],
-    categories: ['art'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Art Dept',
-    shortBio: 'Production designer who builds tactile, detail-rich environments that feel authentic and lived-in.',
-    tagline: '"Every object in frame is a choice. Every choice tells a story."',
-    bio: 'Aditya Rao is a production designer with an obsessive eye for detail. He builds film worlds from the inside out — researching obsessively, sourcing authentically, and building environments that characters feel they have always lived in. His work on "Fractured" was particularly praised for its surreal yet grounded design language.',
-    films: ['Fractured', 'The Crimson Letter'],
-  },
-  {
-    id: 11,
-    name: 'Ananya Roy',
-    roles: ['Vocalist & Lyricist'],
-    categories: ['music'],
-    portrait: 'assets/images/kg.png',
-    badge: 'Vocals',
-    shortBio: 'Classically trained vocalist and lyricist whose haunting timbre anchors the emotional climax of our films.',
-    tagline: '"A voice can say what words alone cannot."',
-    bio: 'Ananya Roy is a classically trained vocalist and lyricist whose haunting voice has become a signature sound across DK Productions\' most emotional sequences. She collaborates closely with Rohan Das to create original songs that function as extensions of the narrative, giving audiences a melodic language for feelings that dialogue cannot express.',
-    films: ['Echoes of Dusk', 'Still Waters'],
-  },
+  
 ];
 
 /* Helper to safely escape HTML */
@@ -357,6 +341,38 @@ function openModal(id) {
     modalFilmList.innerHTML = (person.films || [])
       .map(f => `<span class="badge-chip">${escapeHtml(f)}</span>`)
       .join('');
+  }
+
+  // Prebuilt personalized Gmail / Mailto setup for this crew member
+  const toEmail = 'dk.productions-dir@gmail.com';
+  const ccEmail = 'kanagubry@gmail.com';
+  const rolesStr = roles.join(', ');
+  const emailSubject = `[Casting / Crew Inquiry] Collaboration Request regarding ${person.name} (${rolesStr})`;
+  const emailBody = `Dear DK Productions Management & Admin Team,
+
+I am reaching out regarding a collaboration / casting opportunity for crew member ${person.name} (${rolesStr}).
+
+Project Details:
+- Production / Project Title: [Your Project Title]
+- Production Type (Feature, Short, Series, Commercial, Music Video): [Type]
+- Role / Department: [e.g., ${roles[0] || 'Performer / Technician'}]
+- Proposed Production Dates: [Tentative Schedule]
+- Location / City: [City / Location]
+
+Please let us know their availability, management representation, and the best time to connect for a detailed discussion.
+
+Thank you,
+[Your Name]
+[Your Organization / Production Company]
+[Contact Number / Email]`;
+
+  const crewInquireBtn = document.getElementById('crewInquireBtn');
+  if (crewInquireBtn) {
+    crewInquireBtn.href = getMailtoUrl({ to: toEmail, cc: ccEmail, subject: emailSubject, body: emailBody });
+    crewInquireBtn.onclick = (e) => {
+      e.preventDefault();
+      openGmailCompose({ to: toEmail, cc: ccEmail, subject: emailSubject, body: emailBody });
+    };
   }
 
   if (modalOverlay) {

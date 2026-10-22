@@ -121,13 +121,9 @@
     <div class="filter-bar-sticky" id="filterBar">
       <div class="filter-pill-container">
         <button class="filter-pill active" data-filter="all" id="filter-all">All Crew</button>
-        <button class="filter-pill" data-filter="actor" id="filter-actor">Actors</button>
+        <button class="filter-pill" data-filter="actor" id="filter-actor">Actors &amp; Cast</button>
         <button class="filter-pill" data-filter="camera" id="filter-camera">Cinematography</button>
-        <button class="filter-pill" data-filter="music" id="filter-music">Music &amp; Vocals</button>
         <button class="filter-pill" data-filter="ad" id="filter-ad">Direction &amp; Writing</button>
-        <button class="filter-pill" data-filter="editor" id="filter-editor">Post &amp; Edit</button>
-        <button class="filter-pill" data-filter="sound" id="filter-sound">Sound</button>
-        <button class="filter-pill" data-filter="art" id="filter-art">Art Dept.</button>
       </div>
     </div>
 
@@ -152,7 +148,7 @@
             <div class="modal-roles-chips" id="modalRolesContainer" style="display:flex; flex-wrap:wrap; gap:0.35rem; margin-bottom:0.4rem;">
               <span class="badge-chip verified" id="modalRole">Actor</span>
             </div>
-            <h2 class="modal-crew-name" id="modalName">Aryan Mehta</h2>
+            <h2 class="modal-crew-name" id="modalName"></h2>
             <p class="modal-tagline" id="modalTagline"></p>
           </div>
         </div>
@@ -165,9 +161,9 @@
           <div class="modal-film-list" id="modalFilmList" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem;"></div>
 
           <div style="margin-top:2.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="mailto:kanagubry@gmail.com?cc=dk.productions-dir@gmail.com&subject=Casting%20%2F%20Crew%20Inquiry" class="btn-primary" onclick="handleMailClick(event, 'kanagubry@gmail.com', 'Casting / Crew Inquiry')">
+            <a href="mailto:dk.productions-dir@gmail.com?cc=kanagubry@gmail.com" class="btn-primary" id="crewInquireBtn">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-              Inquire / Casting Inquiry (Admin)
+              Inquire / Casting Inquiry
             </a>
             <button class="btn-glass" onclick="closeModal()">
               Close Profile
