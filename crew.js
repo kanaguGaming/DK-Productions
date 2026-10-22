@@ -58,6 +58,18 @@ const crewData = [
     films: ['Troop'],
   },
   {
+    id: 9,
+    name: 'Pradeeshwar S',
+    roles: ['Actor'],
+    categories: ['actor'],
+    portrait: 'assets/images/pradeeshwar.png',
+    badge: 'Actor'  ,
+    shortBio: 'Talented CSE engineer did a cameo performance in Troop short film, only for his friends.',
+    tagline: '“Butter Kumar rocks, Everyone shocks!”',
+    bio: 'Pradeeshwar was featured in Troop, delivering an cameo performance as Butter Kumar.',
+    films: ['Troop']
+  },  
+  {
     id: 2,
     name: 'Valavan',
     roles: ['Cinematographer', 'Actor'],
@@ -129,6 +141,18 @@ const crewData = [
     bio: 'Swetha stars in Love at metro sight, delivering an expressive, memorable performance.',
     films: ['Love at metro sight']
   },
+  {
+    id: 8,
+    name: 'Priya Akshay',
+    roles: ['Actress'],
+    categories: ['actor'],
+    portrait: 'assets/images/priyaakshay.jpeg',
+    badge: 'Actress'  ,
+    shortBio: 'Actress starring in Kavidhaiye.',
+    tagline: '“Capturing subtle romance in fleeting moments.”',
+    bio: 'Priya Akshay stars in Kavidhaiye, delivering an expressive, memorable performance.',
+    films: ['Kavidhaiye']
+  },  
   
 ];
 
