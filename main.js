@@ -137,41 +137,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ==========================================================================
-   6. CARD CURSOR SPOTLIGHT TRACKING (Desktop Only, High-Performance Throttled)
+   6. CARD CURSOR SPOTLIGHT TRACKING (Removed for 120fps Scroll Performance)
    ========================================================================== */
-function setupCardSpotlights() {
-  // Never run mouse spotlight listeners on mobile/touch screens
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
-  const cards = document.querySelectorAll('.film-card-minimal, .crew-card-glass, .stat-card-glass, .contact-card-glass, .skill-card-glass, .award-card-glass');
-  
-  cards.forEach(card => {
-    let ticking = false;
-    let cardRect = null;
-
-    card.addEventListener('mouseenter', () => {
-      cardRect = card.getBoundingClientRect();
-    }, { passive: true });
-
-    card.addEventListener('mousemove', (e) => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (!cardRect) cardRect = card.getBoundingClientRect();
-          const x = e.clientX - cardRect.left;
-          const y = e.clientY - cardRect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-
-    card.addEventListener('mouseleave', () => {
-      cardRect = null;
-    }, { passive: true });
-  });
-}
 
 /* ==========================================================================
    7. STUDIO CONTACT ACTIONS & TOAST FEEDBACK
@@ -294,10 +262,220 @@ function getMailtoUrl({ to, cc, subject, body }) {
 window.getMailtoUrl = getMailtoUrl;
 
 /* ==========================================================================
+   7B. LIVE ACTIVE & DYNAMICALLY CHANGING BACKGROUND ENGINE
+   Ultra-High-Performance GPU-friendly background with zero-jank scroll pause,
+   batched particle paths, and silky smooth 120fps motion.
+   ========================================================================== */
+function setupDynamicBackground() {
+  const scene = document.querySelector('.ambient-scene');
+  if (!scene) return;
+
+  let canvas = document.getElementById('ambientCanvas');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'ambientCanvas';
+    canvas.className = 'ambient-canvas';
+    canvas.setAttribute('aria-hidden', 'true');
+    scene.insertBefore(canvas, scene.firstChild);
+  }
+
+  const ctx = canvas.getContext('2d', { alpha: true });
+  if (!ctx) return;
+
+  let width = 0;
+  let height = 0;
+  let animId = null;
+  let isRunning = false;
+  let isScrolling = false;
+  let scrollTimeout = null;
+
+  // Track scroll state: pause canvas redraws during active scroll for 120fps smooth scrolling!
+  window.addEventListener('scroll', () => {
+    isScrolling = true;
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      isScrolling = false;
+    }, 120);
+  }, { passive: true });
+
+  const mouse = {
+    x: -9999,
+    y: -9999,
+    targetX: -9999,
+    targetY: -9999,
+    active: false,
+    radius: 180
+  };
+
+  // Lightweight particle count
+  const particleCount = window.innerWidth < 768 ? 14 : 22;
+  const particles = [];
+
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    if (particles.length === 0) {
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          radius: 1.5 + Math.random() * 1.8,
+          baseAlpha: 0.2 + Math.random() * 0.35,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.0012 + Math.random() * 0.0015
+        });
+      }
+    }
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+
+  window.addEventListener('mousemove', (e) => {
+    mouse.targetX = e.clientX;
+    mouse.targetY = e.clientY;
+    mouse.active = true;
+  }, { passive: true });
+
+  window.addEventListener('mouseleave', () => {
+    mouse.active = false;
+  }, { passive: true });
+
+  resize();
+
+  function draw(now) {
+    if (!isRunning) return;
+
+    // While user is actively scrolling, skip heavy canvas redraws to give 100% thread to scrolling
+    if (isScrolling) {
+      animId = requestAnimationFrame(draw);
+      return;
+    }
+
+    if (mouse.active) {
+      mouse.x += (mouse.targetX - mouse.x) * 0.12;
+      mouse.y += (mouse.targetY - mouse.y) * 0.12;
+    } else {
+      mouse.x += (-9999 - mouse.x) * 0.05;
+      mouse.y += (-9999 - mouse.y) * 0.05;
+    }
+
+    ctx.clearRect(0, 0, width, height);
+
+    // 1. Batched Filament Lines (Single Path, Single Stroke!)
+    const maxDist = width < 768 ? 110 : 150;
+    const maxDistSq = maxDist * maxDist;
+
+    ctx.beginPath();
+    for (let i = 0; i < particles.length; i++) {
+      const p1 = particles[i];
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const distSq = dx * dx + dy * dy;
+
+        if (distSq < maxDistSq) {
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+        }
+      }
+    }
+    ctx.lineWidth = 0.8;
+    ctx.strokeStyle = 'rgba(37, 99, 235, 0.12)';
+    ctx.stroke();
+
+    // 2. Batched Particles (Single Path, Single Fill!)
+    ctx.beginPath();
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (mouse.active) {
+        const mdx = p.x - mouse.x;
+        const mdy = p.y - mouse.y;
+        const mDistSq = mdx * mdx + mdy * mdy;
+        if (mDistSq < mouse.radius * mouse.radius && mDistSq > 0) {
+          const mDist = Math.sqrt(mDistSq);
+          const force = (1 - mDist / mouse.radius) * 0.6;
+          p.x += (mdx / mDist) * force;
+          p.y += (mdy / mDist) * force;
+        }
+      }
+
+      if (p.x < -10) p.x = width + 10;
+      else if (p.x > width + 10) p.x = -10;
+      if (p.y < -10) p.y = height + 10;
+      else if (p.y > height + 10) p.y = -10;
+
+      const pulse = Math.sin(now * p.speed + p.phase);
+      const r = p.radius * (1 + 0.15 * pulse);
+
+      ctx.moveTo(p.x + r, p.y);
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+    }
+    ctx.fillStyle = 'rgba(37, 99, 235, 0.35)';
+    ctx.fill();
+
+    // 3. Subtle interactive cursor aura
+    if (mouse.active && mouse.x > 0 && mouse.y > 0) {
+      const mouseGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 160);
+      mouseGrad.addColorStop(0, 'rgba(59, 130, 246, 0.14)');
+      mouseGrad.addColorStop(0.6, 'rgba(37, 99, 235, 0.04)');
+      mouseGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = mouseGrad;
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, 160, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  function start() {
+    if (!isRunning) {
+      isRunning = true;
+      animId = requestAnimationFrame(draw);
+    }
+  }
+
+  function stop() {
+    isRunning = false;
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  start();
+}
+
+/* ==========================================================================
    8. INITIALIZATION
    ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
+function initMain() {
   setupReveal();
   setupSkillBars();
-  setupCardSpotlights();
-});
+  setupDynamicBackground();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMain);
+} else {
+  initMain();
+}
+
+
+

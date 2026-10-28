@@ -247,7 +247,7 @@ function renderCrewGrid() {
     return `
       <article class="crew-card-glass" data-categories="${escapeHtml(categoriesAttr)}" data-role="${escapeHtml(categoriesAttr)}" data-id="${person.id}" tabindex="0" role="button" aria-label="View profile of ${escapeHtml(person.name)}">
         <div class="crew-portrait-wrap">
-          <img src="${escapeHtml(person.portrait)}" alt="${escapeHtml(person.name)}" class="crew-portrait" loading="lazy" />
+          <img src="${escapeHtml(person.portrait)}" alt="${escapeHtml(person.name)}" class="crew-portrait" loading="lazy" decoding="async" />
           <div class="crew-portrait-shade"></div>
           <div class="crew-role-badge-overlay">
             <div style="display:flex; flex-wrap:wrap; gap:0.35rem; align-items:center;">
@@ -434,13 +434,20 @@ document.addEventListener('keydown', (e) => {
 function animateEntrance() {
   const crewCards = document.querySelectorAll('.crew-card-glass');
   crewCards.forEach((card, i) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(24px)';
-    setTimeout(() => {
-      card.style.transition = 'opacity 0.6s var(--ease-spring), transform 0.6s var(--ease-spring), border-color 0.25s, box-shadow 0.25s';
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, 80 + i * 45);
+    if (i < 12) {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(16px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.4s var(--ease-spring), transform 0.4s var(--ease-spring)';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+        setTimeout(() => {
+          card.style.transition = '';
+          card.style.transform = '';
+          card.style.opacity = '';
+        }, 450);
+      }, 40 + i * 30);
+    }
   });
 }
 
