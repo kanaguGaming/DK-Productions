@@ -1296,17 +1296,17 @@ h4 { font-size: clamp(1.05rem, 1.8vw, 1.35rem); }
 
 .filmstrip {
   display: flex;
+  flex-direction: column;
   gap: 1.25rem;
-  overflow-x: auto;
-  padding: 1rem 0 1.5rem;
-  scrollbar-width: thin;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
 }
-.filmstrip::-webkit-scrollbar { height: 4px; }
-.filmstrip::-webkit-scrollbar-thumb { background: rgba(37, 99, 235, 0.25); border-radius: var(--radius-xs); }
 
 .filmstrip-card {
-  flex-shrink: 0;
-  width: 220px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background: #ffffff;
   border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: var(--radius-md);
@@ -1314,33 +1314,165 @@ h4 { font-size: clamp(1.05rem, 1.8vw, 1.35rem); }
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   cursor: pointer;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  text-decoration: none;
 }
+
 .filmstrip-card:hover {
-  transform: translateY(-6px);
+  transform: translateX(6px);
   border-color: rgba(37, 99, 235, 0.35);
   box-shadow: var(--shadow-md);
 }
+
+.filmstrip-thumb-wrap {
+  width: 220px;
+  min-width: 220px;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-surface);
+  flex-shrink: 0;
+}
+
 .filmstrip-thumb {
   width: 100%;
-  aspect-ratio: 16/10;
+  height: 100%;
   object-fit: cover;
-  filter: brightness(0.95);
+  filter: brightness(0.96);
+  transition: transform 0.4s var(--ease-spring), filter 0.3s ease;
+  display: block;
 }
+
+.filmstrip-card:hover .filmstrip-thumb {
+  transform: scale(1.06);
+  filter: brightness(1);
+}
+
 .filmstrip-label {
-  padding: 1rem;
+  padding: 1.25rem 1.75rem;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
-.filmstrip-title {
-  font-family: var(--font-cinema);
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--blue-900);
+
+.filmstrip-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.15rem;
 }
-.filmstrip-meta {
+
+.filmstrip-year {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: var(--radius-full);
   font-family: var(--font-ui);
   font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-700);
+}
+
+.filmstrip-tag {
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.filmstrip-title {
+  font-family: var(--font-cinema);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--blue-900);
+  line-height: 1.2;
+}
+
+.filmstrip-meta {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
   color: var(--blue-600);
   letter-spacing: 0.08em;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.filmstrip-action {
+  padding-right: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.filmstrip-action-text {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.filmstrip-card:hover .filmstrip-action-text {
+  color: var(--blue-700);
+}
+
+.filmstrip-action-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-xs);
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-600);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.filmstrip-card:hover .filmstrip-action-arrow {
+  background: var(--blue-600);
+  color: #ffffff;
+  border-color: var(--blue-600);
+  transform: translateX(3px);
+}
+
+@media (max-width: 680px) {
+  .filmstrip-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filmstrip-card:hover {
+    transform: translateY(-4px);
+  }
+  .filmstrip-thumb-wrap {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 16/10;
+  }
+  .filmstrip-label {
+    padding: 1.25rem 1.25rem 0.75rem;
+  }
+  .filmstrip-action {
+    padding: 0 1.25rem 1.25rem;
+    justify-content: flex-end;
+  }
 }
 
 .skills-grid-glass {
